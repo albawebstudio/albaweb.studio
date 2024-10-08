@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "Revolin";
+    src: url('~/public/fonts/Revolin-Thin.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Revolin";
+    src: url('~/public/fonts/Revolin-ThinItalic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "All-Genders";
+    src: url('~/public/fonts/All-Genders-Regular-v4.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "All-Genders";
+    src: url('~/public/fonts/All-Genders-Light-v4.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: "All-Genders";
+    src: url('~/public/fonts/All-Genders-Bold-v4.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}

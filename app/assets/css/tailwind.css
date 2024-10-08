@@ -1,0 +1,17 @@
+@import './types.css';
+html {
+    scroll-behavior: smooth;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-linkedin {
+    background-color: #0a66c2;
+}
+.bg-instagram {
+    background-color: #ff0069;
+}
+.bg-github {
+    background-color: #333333;
+}
