@@ -1,0 +1,23 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "API handler for the Alba Web Studio Nuxt/Tailwwind project",
+  "main": "handler.js",
+  "scripts": {
+    "deploy:development": "sls deploy --stage development",
+    "deploy:production": "sls deploy --stage production",
+    "sesTemplate:deploy:development": "sls ses-template deploy --stage development",
+    "sesTemplate:deploy:production": "sls ses-template deploy --stage production"
+  },
+  "keywords": [],
+  "author": "Andrew Alba <aalba@albawebstudio.com> (https://albaweb.studio)",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "aws-sdk": "^2.1691.0",
+    "serverless": "^4.4.4"
+  },
+  "devDependencies": {
+    "@haftahave/serverless-ses-template": "^6.1.0"
+  }
+}

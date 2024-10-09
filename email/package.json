@@ -1,0 +1,17 @@
+{
+  "name": "email",
+  "version": "1.0.0",
+  "description": "This project is for building email templates",
+  "main": "index.js",
+  "scripts": {
+    "build": "mjml ./src/*.mjml -o ./dist/",
+    "watch": "mjml -w ./src/*.mjml -o ./dist/"
+  },
+  "keywords": [],
+  "author": "Andrew Alba <aalba@albawebstudio.com> (https://albaweb.studio)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "mjml": "^4.15.3"
+  },
+  "packageManager": "pnpm@9.7.0+sha256.b35018fbfa8f583668b2649e407922a721355cd81f61beeb4ac1d4258e585559"
+}
