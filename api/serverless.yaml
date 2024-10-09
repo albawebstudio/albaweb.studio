@@ -3,6 +3,11 @@ service: alba-web-studio-api
 plugins:
   - '@haftahave/serverless-ses-template'
 
+package:
+  exclude:
+    - node_modules/**
+    - test/**
+
 provider:
   name: aws
   profile: ${self:custom.profiles.${opt:stage, self:provider.stage, 'development'}}

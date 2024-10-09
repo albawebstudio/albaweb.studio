@@ -1,7 +1,11 @@
 "use strict"
 
-const AWS = require("aws-sdk")
-const sesClient = new AWS.SES({apiVersion: "2010-12-01"})
+const { SES } = require("@aws-sdk/client-ses");
+const sesClient = new SES({
+    // The key apiVersion is no longer supported in v3, and can be removed.
+    // @deprecated The client uses the "latest" apiVersion.
+    apiVersion: "2010-12-01",
+})
 
 module.exports.contactForm = (event, context, callback) => {
     const data = JSON.parse(event.body)
@@ -24,7 +28,7 @@ module.exports.contactForm = (event, context, callback) => {
     } catch (err) {
         console.error(err)
         response['body'] = JSON.stringify({
-            sucess: false,
+            success: false,
             message: err.message
         })
     }
@@ -40,11 +44,10 @@ const sendContactFormToAlbaWebStudio = (data) => {
                 ToAddresses: process.env.TO_EMAIL.split(","),
             },
             Source: process.env.SOURCE_EMAIL,
-            Template: `contact_${process.env.STAGE}`,
+            Template: `alba-web-studio-contact_${process.env.STAGE}`,
             TemplateData: JSON.stringify(data),
             ReplyToAddresses: [process.env.REPLY_TO_EMAIL],
         })
-        .promise()
         .then(function () {
             console.log("sendContactFormToAlbaWebStudio email queued")
         })

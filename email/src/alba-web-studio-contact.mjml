@@ -17,13 +17,16 @@
                 <mj-text font-size="18px" color="#9798A4" font-weight="700" line-height="27px" padding-bottom="60px">
                     {{ name }} has sent you a message.
                 </mj-text>
+                <mj-text font-size="18px" color="#9798A4" font-weight="700" line-height="27px" padding-bottom="60px">
+                    {{ subject }}
+                </mj-text>
                 <mj-text font-size="18px" color="#9798A4" font-weight="400" line-height="27px" padding-bottom="60px">
                     {{ message }}
                 </mj-text>
                 <mj-text font-size="18px" color="#9798A4" font-weight="400" padding-bottom="60px">Email:
                     <a href="mailto:{{ email }}">{{ email }}</a>
                 </mj-text>
-                <mj-button href="mailto:{{ email }}" width="100%" inner-padding="25px" border-radius="6px"
+                <mj-button href="mailto:{{ email }}?subject={{subject}}" width="100%" inner-padding="25px" border-radius="6px"
                            background-color="#1E8BD5" font-size="22px" font-weight="500" color="#fff">Reply to message
                 </mj-button>
                 <mj-text font-size="11px" color="#9798A4" font-weight="500" padding-top="30px">This email was generated from

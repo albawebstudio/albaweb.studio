@@ -2,7 +2,7 @@ const path = require("path")
 
 const templateList = [
     {
-        templateId: "contact",
+        templateId: "alba-web-studio-contact",
         templateSubject: "Alba Web Studio - Contact Form",
     },
 ]

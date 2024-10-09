@@ -14,10 +14,12 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.667.0",
     "aws-sdk": "^2.1691.0",
     "serverless": "^4.4.4"
   },
   "devDependencies": {
     "@haftahave/serverless-ses-template": "^6.1.0"
-  }
+  },
+  "packageManager": "pnpm@9.7.0+sha256.b35018fbfa8f583668b2649e407922a721355cd81f61beeb4ac1d4258e585559"
 }
