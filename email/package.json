@@ -2,7 +2,6 @@
   "name": "email",
   "version": "1.0.0",
   "description": "This project is for building email templates",
-  "main": "index.js",
   "scripts": {
     "build": "mjml ./src/*.mjml -o ./dist/",
     "watch": "mjml -w ./src/*.mjml -o ./dist/"

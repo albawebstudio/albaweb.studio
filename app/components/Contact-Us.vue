@@ -96,7 +96,7 @@ const clearSuccess = () => {
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
                 <textarea v-model="form.message" id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
               </div>
-              <button @click.prevent="submitForm"  type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+              <button @click.prevent="submitForm" type="submit" class="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-primary-700 sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
             </form>
           </template>
           <template v-if="showSuccess">
@@ -111,7 +111,7 @@ const clearSuccess = () => {
                     </div>
                   </div>
                 </div>
-                <h3 class="my-4 text-center text-3xl font-semibold text-gray-700">Congratuation!!!</h3>
+                <h3 class="my-4 text-center text-3xl font-semibold text-gray-700">Congratulation!!!</h3>
                 <p class="w-[230px] text-center font-normal text-gray-600">Your message have been submitted and will be reviewed shortly.</p>
                 <button @click="clearSuccess" class="mx-auto mt-10 block rounded-xl border-4 border-transparent bg-orange-400 px-6 py-3 text-center text-base font-medium text-orange-100 outline-8 hover:outline hover:duration-300">Clear Message</button>
               </div>
