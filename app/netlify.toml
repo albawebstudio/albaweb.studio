@@ -1,6 +1,6 @@
 [build]
 base = "app"
-command = "npm run build"
+command = "pnpm run build"
 publish = "dist"
 
 [build.environment]
@@ -11,11 +11,8 @@ from = "/*"
 to = "/index.html"
 status = 200
 
-[[plugins]]
-package = "@netlify/plugin-csp-nonce"
-
 [[headers]]
-for = "/*"
-[headers.values]
-Content-Security-Policy = "default-src 'self'; style-src 'self'; img-src * data:; script-src 'self'; font-src 'self' data:; connect-src 'self' https://*.execute-api.us-east-1.amazonaws.com/ data: ws://localhost:4003/ws;"
+    for = "/*"
+    [headers.values]
+        Content-Security-Policy = "default-src 'self'; style-src 'self' 'sha256-GrCd12iQ9z/UxdO+XtWc+VMgfbqVUvxes3H7rbIXwO8=' 'sha256-ISCM0yTfU/v1rsb4d5Zwtud913c5+qb8i3JTRSuqNmI=' 'sha256-kOhijMvLAU7VG+QnskXYNKrPdpazfS7do50MLweYiI4=' 'sha256-RuovMfsVDN2WZYBjoaQafi0GDvNBABxPcLymlHfMnxo=' 'sha256-W+aInP4g9736mvlqgZyVrAP0muMScqkeYaDyavFhJso=' 'sha256-dpKjlqZORi9umJLm9TBsxi4IAjQEo1yK0bc/cgbqEW0=' 'sha256-dcQotAD9gQApYHI3QjFGV8+txfP1JmNNO90/vpAxcYI='; img-src * data:; script-src 'self' 'sha256-4JsHiz+XLFygRXLabxoLCIFhxCE2b4I1Pi3O0P/JYIU=' 'sha256-MX5tI3dTIZ8SsH7D33hsbZrPMuRYb0awBA5g6zhmxAg=' 'sha256-ywX1jMWBvLA4vnpd6j5yBtD3YAo2d1bvP29VM4VZ4so=' 'sha256-bS/+BPldIqdDZevT2pj9JBx14eY65oS6VqEZBrrBD2w='; font-src 'self' data:; connect-src 'self' https://*.execute-api.us-east-1.amazonaws.com/ data: ws://localhost:4003/ws;"
 
