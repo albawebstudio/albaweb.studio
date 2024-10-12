@@ -5,6 +5,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "netlify-dev": "netlify dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
@@ -21,7 +22,6 @@
   },
   "packageManager": "pnpm@9.7.0+sha256.b35018fbfa8f583668b2649e407922a721355cd81f61beeb4ac1d4258e585559",
   "devDependencies": {
-    "@netlify/plugin-csp-nonce": "^1.2.10",
     "@nuxtjs/tailwindcss": "^6.12.1"
   }
 }
