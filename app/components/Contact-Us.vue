@@ -36,11 +36,6 @@ const isFormValid = computed(() => {
       form.value.message.trim();
 });
 
-const delaySuccess = () => {
-  resetForm()
-  showSpinner.value = false
-  showSuccess.value = true
-}
 const submitForm = async () => {
   showSpinner.value = true
   // validate
@@ -49,8 +44,7 @@ const submitForm = async () => {
     return;
   }
   try{
-    setTimeout(delaySuccess, 3000);
-    /*const response = await fetch(`${apiUrl}/contact-form`, {
+    const response = await fetch(`${apiUrl}/contact-form`, {
       method: "POST",
       body: JSON.stringify(form),
     } )
@@ -60,7 +54,7 @@ const submitForm = async () => {
     }
     resetForm()
     showSpinner.value = false
-    showSuccess.value = true*/
+    showSuccess.value = true
   } catch (e) {
     console.log(e);
     showSpinner.value = false
