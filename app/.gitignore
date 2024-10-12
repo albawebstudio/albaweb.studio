@@ -1,3 +1,6 @@
+# Netlify
+.netlify
+
 # Nuxt dev/build outputs
 .output
 .data
