@@ -22,11 +22,12 @@ export default defineNuxtConfig({
     '@fortawesome/fontawesome-svg-core/styles.css',
   ],
 
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/tailwindcss", 'nuxt-security'],
 
   build: {
     transpile: [
       '@fortawesome/vue-fontawesome'
     ]
   },
+
 })
