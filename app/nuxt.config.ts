@@ -26,12 +26,17 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     'nuxt-security',
     '@nuxt/content',
+    'nuxt-gtag',
   ],
 
   build: {
     transpile: [
       '@fortawesome/vue-fontawesome'
     ]
+  },
+
+  gtag: {
+    id: 'G-ELCD5FEVDR'
   },
 
   content: {

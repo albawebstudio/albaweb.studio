@@ -108,13 +108,13 @@ export function useSiteData() {
             icon: null,
             displayText: "About Us"
         },
-        {
+        /*{
             title: "Check out our blog",
             to: "/blog",
             external: false,
             icon: null,
             displayText: "Blog"
-        },
+        },*/
         {
             title: "Our Github Repos",
             to: "https://github.com/albawebstudio",
