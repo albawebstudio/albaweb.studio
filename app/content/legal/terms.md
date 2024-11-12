@@ -173,6 +173,7 @@ a. **Procedure for Reporting Copyright Infringements.**
    4. Contact information about the notifier including address, telephone number and, if available, email address;
    5. A statement that the notifier has a good faith belief that the material is not authorized by the copyright owner, its agent, or the law; and
    6. A statement made under penalty of perjury that the information provided is accurate and the notifying party is authorized to make the complaint on behalf of the copyright owner.
+
 b. **Upon Receipt of a Bona Fide Infringement Notification**
 
    Once Proper Bona Fide Infringement Notification is received by the Designated Agent, it is
@@ -180,12 +181,14 @@ b. **Upon Receipt of a Bona Fide Infringement Notification**
    1. to remove or disable access to the infringing material;
    2. to notify the content provider, member or user that it has removed or disabled access to the material; and
    3. that for repeat offenders, we will also terminate such content provider's, member's or user's access to the service.
+
 c. **Procedure to Supply a Counter-Notice to the Designated Agent**
 
    If the content provider, member or user believes that the material that was removed or to which access was disabled 
    is either not infringing, or the content provider, member or user believes that it has the right to post and use such 
    material from the copyright owner, the copyright owner's agent, or pursuant to the law, the content provider, member 
    or user must send a counter-notice containing the following information to the Designated Agent listed below:
+
    1. A physical or electronic signature of the content provider, member or user;
    2. Identification of the material that has been removed or to which access to has been disabled and the location at 
       which the material appeared before it was removed or disabled;
@@ -197,6 +200,7 @@ c. **Procedure to Supply a Counter-Notice to the Designated Agent**
       user's address is located outside the United States, for any judicial district in which we are located, and that 
       such person or entity will accept service of process from the person who provided notification of the alleged
       infringement.
+
 d. **Removal**
 
    If a counter-notice is received by the Designated Agent, we may send a copy of the counter-notice to the original 
@@ -403,20 +407,19 @@ DISPUTES MAY ALSO BE REFERRED TO ANOTHER ARBITRATION
     OR TO AN ARBITRATOR APPOINTED PURSUANT TO SECTION 5 OF THE
     FEDERAL ARBITRATION ACT.
 
-The JAMS Rules are available on its website at http://www.jamsadr.com/rules-streamlined-
-    arbitration/ or by calling JAMS at 800-352-5267. To commence an arbitration, a Demand for
-    Arbitration is required to be executed and served on us. Service of the Demand for
-    Arbitration on us can be mailed to Alba Web Studio LLC, Attn: Legal Department, 202 N
-    Cedar Ave Suite #1, Owatonna, MN 55060, pursuant to the instructions provided by JAMS
-    to submit a Dispute for arbitration. Service of the Demand for Arbitration on you will be sent
-    to the Notice Address. Further instructions on submitting a Demand for Arbitration can be
-    found at www.jamsadr.com/files/Uploads/Documents/JAMS_Arbitration_Demand.pdf. We
-    will bear the cost of your initial filing fee.
+The JAMS Rules are available on its website at [http://www.jamsadr.com/rules-streamlined-arbitration/](http://www.jamsadr.com/rules-streamlined-arbitration/) or by calling JAMS at 800-352-5267. To commence an arbitration, a Demand for 
+Arbitration is required to be executed and served on us. Service of the Demand for 
+Arbitration on us can be mailed to Alba Web Studio LLC, Attn: Legal Department, 202 N 
+Cedar Ave Suite #1, Owatonna, MN 55060, pursuant to the instructions provided by JAMS 
+to submit a Dispute for arbitration. Service of the Demand for Arbitration on you will be sent 
+to the Notice Address. Further instructions on submitting a Demand for Arbitration can be 
+found at [www.jamsadr.com](www.jamsadr.com/files/Uploads/Documents/JAMS_Arbitration_Demand.pdf). We 
+will bear the cost of your initial filing fee.
 
-There is no judge or jury in arbitration, and court review of an arbitration award is limited.
-    An arbitrator, however, can award on an individual basis the same damages and relief as a
-    court (including injunctive and declaratory relief, or statutory damages), and must follow the
-    terms of these Terms.
+There is no judge or jury in arbitration, and court review of an arbitration award is limited. 
+An arbitrator, however, can award on an individual basis the same damages and relief as a 
+court (including injunctive and declaratory relief, or statutory damages), and must follow the 
+terms of these Terms.
 
 BECAUSE THE WEBSITE CONCERNS INTERSTATE COMMERCE, THE FEDERAL
     ARBITRATION ACT ("FAA") GOVERNS THE ARBITRABILITY OF ALL DISPUTES.
