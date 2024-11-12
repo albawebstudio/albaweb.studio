@@ -8,7 +8,7 @@ const currentYear = date.getFullYear();
 </script>
 
 <template>
-  <footer class="relative bg-gray-900 text-slate-200 dark:bg-slate-200 dark:text-gray-800 pt-8 pb-6">
+  <footer class="relative bg-slate-200 text-gray-800 dark:bg-gray-900 dark:text-slate-200 pt-8 pb-6">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap text-left lg:text-left">
         <div class="w-full lg:w-6/12 px-4">
@@ -37,11 +37,11 @@ const currentYear = date.getFullYear();
             <div class="w-full lg:w-4/12 px-4 ml-auto">
               <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful Links</span>
               <ul class="list-unstyled">
-                <li v-for="link in useful_links" :key="link.label">
-                  <NuxtLink :to="link.href"
+                <li v-for="(link, idx) in useful_links" :key="idx">
+                  <NuxtLink :to="link.to"
                             :external="link.external"
-                            class="ext-slate-200 hover:text-slate-400 dark:text-gray-800 dark:hover:text-gray-600 font-semibold block pb-2 text-sm" href="/#about-us?ref=aws-profile"
-                            target="_blank"
+                            class="text-gray-800 hover:text-gray-600 dark:text-slate-200 dark:hover:text-slate-400 font-semibold block pb-2 text-sm"
+                            :target="link.external ? '_blank' : '_self'"
                             rel="noopener">{{ link.displayText }}</NuxtLink>
                 </li>
               </ul>
@@ -49,11 +49,11 @@ const currentYear = date.getFullYear();
             <div class="w-full lg:w-4/12 px-4">
               <span class="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Other Resources</span>
               <ul class="list-unstyled">
-                <li v-for="link in other_resources" :key="link.label">
-                  <NuxtLink :to="link.href"
+                <li v-for="(link, idx) in other_resources" :key="idx">
+                  <NuxtLink :to="link.to"
                             :external="link.external"
-                            class="text-slate-200 hover:text-slate-400 dark:text-gray-800 dark:hover:text-gray-600 font-semibold block pb-2 text-sm" href="/#about-us?ref=aws-profile"
-                            target="_blank"
+                            class="text-gray-800 hover:text-gray-600 dark:text-slate-200 dark:hover:text-slate-400 font-semibold block pb-2 text-sm" href="/#about-us?ref=aws-profile"
+                            :target="link.external ? '_blank' : '_self'"
                             rel="noopener">{{ link.displayText }}</NuxtLink>
                 </li>
               </ul>

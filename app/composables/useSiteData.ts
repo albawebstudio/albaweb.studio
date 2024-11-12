@@ -4,6 +4,7 @@ import type {
 } from '~/models/site'
 import type {
     Address,
+    Cta,
     Email,
     Link,
     Phone,
@@ -33,7 +34,7 @@ export function useSiteData() {
     const emails = ref<Email[]> ([
         {
             display_name: "Support",
-            account: "subppport",
+            account: "support",
             domain: "albaweb.studio"
         },
         {
@@ -103,7 +104,7 @@ export function useSiteData() {
         {
             title: "More about us",
             to: "/#about-us",
-            external: true,
+            external: false,
             icon: null,
             displayText: "About Us"
         },
@@ -117,7 +118,7 @@ export function useSiteData() {
         {
             title: "Our Github Repos",
             to: "https://github.com/albawebstudio",
-            external: false,
+            external: true,
             icon: null,
             displayText: "Github"
         }
@@ -132,14 +133,14 @@ export function useSiteData() {
         },
         {
             title: "Check out our terms and conditions",
-            to: "/terms",
+            to: "/legal/terms",
             external: false,
             icon: null,
             displayText: "Terms & Conditions"
         },
         {
             title: "View our privacy policy",
-            to: "/privacy",
+            to: "/legal/privacy",
             external: false,
             icon: null,
             displayText: "Privacy Policy"
@@ -166,6 +167,25 @@ export function useSiteData() {
         other_resources: other_resources.value,
     })
 
+    const ctas = ref<Cta[]>([
+        {
+            title: "Portfolio",
+            to: "/#portfolio",
+            external: false,
+            icon: null,
+            className: "bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900",
+            displayText: "Our Work"
+        },
+        {
+            title: "About Us",
+            to: "/#about-us",
+            external: false,
+            icon: null,
+            className: "hover:text-gray-900 border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400 sm:ms-4",
+            displayText: "Learn More"
+        }
+    ])
+
     const getSiteTitle = () => {
         return site.value.title;
     }
@@ -189,6 +209,7 @@ export function useSiteData() {
         social_links,
         useful_links,
         other_resources,
+        ctas,
         getSiteTitle,
         getAddressByLabel,
         getEmailByAccount,

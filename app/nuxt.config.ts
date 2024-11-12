@@ -22,12 +22,28 @@ export default defineNuxtConfig({
     '@fortawesome/fontawesome-svg-core/styles.css',
   ],
 
-  modules: ["@nuxtjs/tailwindcss", 'nuxt-security'],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    'nuxt-security',
+    '@nuxt/content',
+  ],
 
   build: {
     transpile: [
       '@fortawesome/vue-fontawesome'
     ]
+  },
+
+  content: {
+    markdown: {
+      toc: {
+        depth: 3,
+        searchDepth: 3
+      },
+      rehypePlugins: [
+        'rehype-external-links'
+      ]
+    }
   },
 
 })

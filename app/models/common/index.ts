@@ -1,4 +1,5 @@
 export * from './address'
+export * from './cta'
 export * from './email'
 export * from './img'
 export * from './link'
