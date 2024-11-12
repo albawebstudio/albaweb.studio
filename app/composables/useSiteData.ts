@@ -126,7 +126,7 @@ export function useSiteData() {
     const other_resources = ref<Link[]>([
         {
             title: "Check out our license",
-            to: "https://github.com/albawebstudio/albaweb.studio/blob/main/LICENSE.md?ref=aws-profile",
+            to: "https://github.com/albawebstudio/albaweb.studio/blob/main/LICENSE?ref=aws-profile",
             external: true,
             icon: null,
             displayText: "MIT License"
