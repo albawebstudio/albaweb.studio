@@ -12,7 +12,7 @@ provider:
   name: aws
   profile: ${self:custom.profiles.${opt:stage, self:provider.stage, 'development'}}
   stage: ${opt:stage, 'development'}
-  runtime: nodejs18.x
+  runtime: nodejs20.x
   iam:
     role: arn:aws:iam::253548989411:role/alba-web-studio-api
 

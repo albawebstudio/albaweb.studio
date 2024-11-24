@@ -27,7 +27,7 @@ const getInitialFormData = (): FormData => ({
 })
 
 const form = ref<FormData>(getInitialFormData());
-const resetForm = () => Object.assign(form, getInitialFormData());
+const resetForm = () => Object.assign(form.value, getInitialFormData());
 
 const isFormValid = computed(() => {
   return form.value.name.trim() &&
@@ -46,7 +46,7 @@ const submitForm = async () => {
   try{
     const response = await fetch(`${apiUrl}/contact-form`, {
       method: "POST",
-      body: JSON.stringify(form),
+      body: JSON.stringify(form.value),
     } )
     if (!response.ok){
       //Do something when request fails

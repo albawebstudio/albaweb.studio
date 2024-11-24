@@ -37,7 +37,7 @@ export default defineNuxtConfig({
   },
 
   gtag: {
-    id: 'G-ELCD5FEVDR'
+    id: process.env.GAG_ID
   },
 
   content: {

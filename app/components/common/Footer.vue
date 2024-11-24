@@ -52,7 +52,7 @@ const currentYear = date.getFullYear();
                 <li v-for="(link, idx) in other_resources" :key="idx">
                   <NuxtLink :to="link.to"
                             :external="link.external"
-                            class="text-gray-800 hover:text-gray-600 dark:text-slate-200 dark:hover:text-slate-400 font-semibold block pb-2 text-sm" href="/#about-us?ref=aws-profile"
+                            class="text-gray-800 hover:text-gray-600 dark:text-slate-200 dark:hover:text-slate-400 font-semibold block pb-2 text-sm"
                             :target="link.external ? '_blank' : '_self'"
                             rel="noopener">{{ link.displayText }}</NuxtLink>
                 </li>
