@@ -11,17 +11,17 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.6.0",
-    "@fortawesome/free-brands-svg-icons": "^6.6.0",
-    "@fortawesome/free-regular-svg-icons": "^6.6.0",
-    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.1",
+    "@fortawesome/free-brands-svg-icons": "^6.7.1",
+    "@fortawesome/free-regular-svg-icons": "^6.7.1",
+    "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "@nuxt/content": "^2.13.4",
     "@pinia/nuxt": "^0.9.0",
     "@tailwindcss/typography": "^0.5.15",
-    "nuxt": "^3.13.0",
-    "nuxt-gtag": "^3.0.1",
-    "nuxt-security": "^2.0.0",
+    "nuxt": "^3.14.1592",
+    "nuxt-gtag": "^3.0.2",
+    "nuxt-security": "^2.1.5",
     "rehype-external-links": "^3.0.0",
     "vue": "latest",
     "vue-recaptcha-v3": "^2.0.1",
@@ -29,7 +29,7 @@
   },
   "packageManager": "pnpm@9.7.0+sha256.b35018fbfa8f583668b2649e407922a721355cd81f61beeb4ac1d4258e585559",
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.1",
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "nuxt-lodash": "^2.5.3"
   }
 }
