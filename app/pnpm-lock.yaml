@@ -9,16 +9,16 @@ importers:
   .:
     dependencies:
       '@fortawesome/fontawesome-svg-core':
-        specifier: ^6.7.1
+        specifier: ^6.6.0
         version: 6.7.1
       '@fortawesome/free-brands-svg-icons':
-        specifier: ^6.7.1
+        specifier: ^6.6.0
         version: 6.7.1
       '@fortawesome/free-regular-svg-icons':
-        specifier: ^6.7.1
+        specifier: ^6.6.0
         version: 6.7.1
       '@fortawesome/free-solid-svg-icons':
-        specifier: ^6.7.1
+        specifier: ^6.6.0
         version: 6.7.1
       '@fortawesome/vue-fontawesome':
         specifier: ^3.0.8
@@ -33,14 +33,17 @@ importers:
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.16)
       nuxt:
-        specifier: ^3.14.1592
+        specifier: ^3.13.0
         version: 3.14.1592(@parcel/watcher@2.5.0)(@types/node@22.10.1)(ioredis@5.4.1)(magicast@0.3.5)(rollup@4.28.1)(terser@5.37.0)(typescript@5.7.2)(vite@5.4.11(@types/node@22.10.1)(terser@5.37.0))
       nuxt-gtag:
-        specifier: ^3.0.2
+        specifier: ^3.0.1
         version: 3.0.2(magicast@0.3.5)(rollup@4.28.1)
       nuxt-security:
-        specifier: ^2.1.5
+        specifier: ^2.0.0
         version: 2.1.5(magicast@0.3.5)(rollup@4.28.1)
+      pinia:
+        specifier: ^2.3.0
+        version: 2.3.0(typescript@5.7.2)(vue@3.5.13(typescript@5.7.2))
       rehype-external-links:
         specifier: ^3.0.0
         version: 3.0.0
