@@ -5,9 +5,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   runtimeConfig: {
+    recaptchaSecretKey: process.env.RECAPTCHA_SECRET_KEY,
     public: {
       apiUrl: process.env.AWS_API_URL,
       gtagId: process.env.GAG_ID,
+      recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
     }
   },
 
@@ -28,6 +30,8 @@ export default defineNuxtConfig({
     'nuxt-security',
     '@nuxt/content',
     'nuxt-gtag',
+    'nuxt-lodash',
+    '@pinia/nuxt',
   ],
 
   build: {
@@ -50,6 +54,14 @@ export default defineNuxtConfig({
         'rehype-external-links'
       ]
     }
+  },
+
+  vite: {
+    server: {
+      watch: {
+        usePolling: true,
+      },
+    },
   },
 
 })
