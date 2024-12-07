@@ -4,6 +4,12 @@ import { useSiteData } from "~/composables/useSiteData"
 import Spinner from "~/components/common/Spinner.vue"
 import ContactForm   from "~/components/common/ContactForm.vue"
 import Success from "~/components/common/Success.vue"
+import useGoogleRecaptcha, {
+  RecaptchaAction,
+} from "~/composables/useGoogleRecaptcha"
+import type { GoogleRecaptchaResponse } from "~/models/types/google-recaptcha-response"
+
+const { executeRecaptcha } = useGoogleRecaptcha();
 const { site, phone, getAddressByLabel } = useSiteData()
 const address = getAddressByLabel("office")
 
@@ -44,6 +50,18 @@ const submitForm = async () => {
     return;
   }
   try{
+    const { token } = await executeRecaptcha(RecaptchaAction.login);
+    const verificationResponse = await useApi<GoogleRecaptchaResponse>('/api/recaptcha', {
+      method: 'POST',
+      body: {
+        token
+      }
+    })
+
+    if (!verificationResponse.success) {
+      throw new Error('reCAPTCHA verification failed');
+    }
+
     const response = await fetch(`${apiUrl}/contact-form`, {
       method: "POST",
       body: JSON.stringify(form.value),
