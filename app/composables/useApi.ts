@@ -11,8 +11,6 @@ export default async function useApi<T>(path: NitroFetchRequest, opts?: FetchOpt
 
     // Handle url query param mutations
     const queryStore = useQueryParamStore()
-    console.log(`typeof route.query: ${typeof route.query}`)
-    console.log(`route.query: ${JSON.stringify(route.query)}`)
     if (!isEmpty(route.query)) {
         queryStore.setParameters(route.query)
     }
