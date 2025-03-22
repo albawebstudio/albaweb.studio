@@ -38,12 +38,8 @@ export default {
             },
         },
         fontFamily: {
-            'revolin': [
-                'Revolin',
-            ],
-            'all-genders': [
-                'All-Genders',
-            ],
+            revolin: ['Revolin', 'sans-serif'],
+            'all-genders': ['All-Genders', 'sans-serif'],
         }
     },
     plugins: [
