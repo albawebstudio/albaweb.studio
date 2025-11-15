@@ -46,7 +46,7 @@ const sendContactFormToAlbaWebStudio = (data) => {
             Source: process.env.SOURCE_EMAIL,
             Template: `alba-web-studio-contact_${process.env.STAGE}`,
             TemplateData: JSON.stringify(data),
-            ReplyToAddresses: [process.env.REPLY_TO_EMAIL],
+            ReplyToAddresses: [data.email ?? process.env.REPLY_TO_EMAIL],
         })
         .then(function () {
             console.log("sendContactFormToAlbaWebStudio email queued")
