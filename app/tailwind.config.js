@@ -1,5 +1,4 @@
 import {config} from "@fortawesome/fontawesome-svg-core";
-import tailwindConfig from "tailwindcss/stubs/tailwind.config.js";
 
 /** @type {import('tailwindcss').Config} */
 
