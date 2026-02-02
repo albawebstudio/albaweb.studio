@@ -92,6 +92,24 @@ export function usePortfolioData() {
                 icon: null,
                 displayText: "View Site"
             }
+        },
+        {
+            title: "DingoBytes",
+            service: "Website",
+            content: [
+                "A technology and software development blog that shares insights, projects, and experiences in web development and innovation.",
+            ],
+            img: {
+                src: "/portfolio/dingobytes.com.jpg",
+                alt: "DingoBytes"
+            },
+            cta: {
+                title: "DingoBytes",
+                to: "https://dingobytes.com",
+                external: true,
+                icon: null,
+                displayText: "View Site"
+            }
         }
     ])
     const portfolio = ref<Portfolio>({
