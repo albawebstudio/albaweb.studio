@@ -2,6 +2,7 @@
 interface Props {
   name: string;
   email: string;
+  phone: string
   subject: string;
   message: string;
 }
@@ -10,6 +11,7 @@ const props = defineProps<Props>();
 const emit = defineEmits<{
   (e: 'update:name', value: string): void
   (e: 'update:email', value: string): void
+  (e: 'update:phone', value: string): void
   (e: 'update:subject', value: string): void
   (e: 'update:message', value: string): void
   (e: 'submit'): void
@@ -22,6 +24,10 @@ const updateName = (event: Event) => {
 const updateEmail = (event: Event) => {
   emit('update:email', (event.target as HTMLInputElement).value);
 };
+
+const updatePhone = (event: Event) => {
+  emit('update:phone', (event.target as HTMLInputElement).value)
+}
 
 const updateSubject = (event: Event) => {
   emit('update:subject', (event.target as HTMLInputElement).value);
@@ -58,6 +64,23 @@ const submitForm = () => {
              placeholder="you@yourdomain.com"
              required>
     </div>
+    <div class="form__alt" aria-hidden="true">
+      <label for="mobile">Mobil</label>
+      <input
+          :value="phone ?? ''"
+          @input="updatePhone"
+          type="tel"
+          name="mobile"
+          id="mobile"
+          tabindex="-1"
+          autocomplete="off"
+          data-1p-ignore
+          data-lpignore="true"
+          data-bwignore
+          data-form-type="other"
+          data-protonpass-ignore
+      />
+    </div>
     <div>
       <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
       <input :value="subject"
@@ -82,5 +105,11 @@ const submitForm = () => {
 </template>
 
 <style scoped>
-
+.form__alt {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 </style>

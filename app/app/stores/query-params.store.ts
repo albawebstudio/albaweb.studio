@@ -5,6 +5,8 @@ export interface QueryParamsState {
     queryParams: Record<string, string>;
 }
 
+const isEmpty = (obj: Record<string, unknown>) => Object.keys(obj).length === 0;
+
 export const useQueryParamStore = defineStore('query-params', {
     state: (): QueryParamsState => ({ queryParams: {} }),
 
