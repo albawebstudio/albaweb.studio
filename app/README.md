@@ -78,5 +78,5 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 ### Images
 
-- Photo by <a href="https://unsplash.com/@charlesdeluvio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">charlesdeluvio</a> on <a href="https://unsplash.com/photos/person-facing-computer-desktop-pjAH2Ax4uWk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+- Photo by [charlesdeluvio](https://unsplash.com/@charlesdeluvio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/person-facing-computer-desktop-pjAH2Ax4uWk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
   

@@ -7,12 +7,13 @@ package:
   exclude:
     - node_modules/**
     - test/**
+    - env.*.json
 
 provider:
   name: aws
   profile: ${self:custom.profiles.${opt:stage, self:provider.stage, 'development'}}
   stage: ${opt:stage, 'development'}
-  runtime: nodejs20.x
+  runtime: nodejs22.x
   iam:
     role: arn:aws:iam::253548989411:role/alba-web-studio-api
 
@@ -32,7 +33,7 @@ custom:
     staging: default
     production: default
   sesTemplates:
-    addStage: true                             # Specifies whether to add stage to template name (default false)
+    addStage: true                             # Specifies whether to add stage to the template name (default false)
     configFile: './email-templates.js' # Config file path (default './ses-email-templates/index.js')
     disableAutoDeploy: true                    # Specifies whether to sync templates while sls deploy (default false)
-    region: 'us-east-1'                        # Specifies AWS region for SES templates (not required)
+    region: 'us-east-1'                        # Specifies an AWS region for SES templates (not required)

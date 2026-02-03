@@ -1,0 +1,30 @@
+<mj-section padding="0" text-align="center">
+    <mj-group width="280px">
+        <!-- Logo -->
+        <mj-column width="40px" vertical-align="middle">
+            <mj-image
+                    src="https://albawebstudio.com/logos/albawebstudio-logo-dark.svg"
+                    width="32px"
+                    padding="0"
+                    align="center"
+            />
+        </mj-column>
+
+        <!-- Text -->
+        <mj-column padding="0" vertical-align="middle">
+            <mj-text
+                    font-size="24px"
+                    font-weight="800"
+                    color="#ffffff"
+                    font-family="Montserrat, Arial, sans-serif"
+                    padding="0"
+                    align="left"
+            >
+                Alba
+                <span style="font-family: 'Nunito', Arial, sans-serif; font-weight: 200; color: #dddddd">
+                    Web Studio
+                </span>
+            </mj-text>
+        </mj-column>
+    </mj-group>
+</mj-section>

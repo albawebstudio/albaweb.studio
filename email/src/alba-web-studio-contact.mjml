@@ -1,29 +1,37 @@
 <mjml>
     <mj-head>
-        <mj-font name="Montserrat" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700"/>
+        <mj-font name="Montserrat" href="https://fonts.googleapis.com/css?family=Montserrat:700,800,900"/>
+        <mj-font name="Nunito" href="https://fonts.googleapis.com/css2?family=Nunito:200,300,400" />
+
         <mj-attributes>
-            <mj-all font-family="Montserrat"/>
+            <mj-text align="center" color="#555"/>
         </mj-attributes>
         <mj-preview>
             <!-- TODO Add mail preview -->
         </mj-preview>
     </mj-head>
-    <mj-body>
-        <mj-section padding="40px">
+
+    <mj-body background-color="#000">
+
+        <mj-spacer height="60px" />
+        <mj-include path="common/header.mjml"/>
+        <mj-spacer height="20px" />
+
+        <mj-section padding="40px" background-color="#e2e8f0">
             <mj-column>
-                <mj-text font-size="29px" font-weight="700" color="#222222" padding-bottom="30px">
+                <mj-text font-family="Montserrat" font-size="29px" font-weight="800" color="#1E8BD5" padding-bottom="30px">
                     New Message
                 </mj-text>
-                <mj-text font-size="18px" color="#9798A4" font-weight="700" line-height="27px" padding-bottom="60px">
+                <mj-text font-size="18px" color="#9798A4" font-weight="300" line-height="18px" padding-bottom="40px">
                     {{ name }} has sent you a message.
                 </mj-text>
-                <mj-text font-size="18px" color="#9798A4" font-weight="700" line-height="27px" padding-bottom="60px">
+                <mj-text font-size="18px" color="#9798A4" font-weight="300" line-height="18px" padding-bottom="40px">
                     {{ subject }}
                 </mj-text>
-                <mj-text font-size="18px" color="#9798A4" font-weight="400" line-height="27px" padding-bottom="60px">
+                <mj-text font-size="18px" color="#9798A4" font-weight="300" line-height="18px" padding-bottom="40px">
                     {{ message }}
                 </mj-text>
-                <mj-text font-size="18px" color="#9798A4" font-weight="400" padding-bottom="60px">Email:
+                <mj-text font-size="18px" color="#9798A4" font-weight="300" padding-bottom="40px">Email:
                     <a href="mailto:{{ email }}">{{ email }}</a>
                 </mj-text>
                 <mj-button href="mailto:{{ email }}?subject={{subject}}" width="100%" inner-padding="25px" border-radius="6px"
@@ -34,5 +42,7 @@
                 </mj-text>
             </mj-column>
         </mj-section>
+
+        <mj-include path="common/footer.mjml"/>
     </mj-body>
 </mjml>

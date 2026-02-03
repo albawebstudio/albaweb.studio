@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref, shallowRef } from 'vue'
 import { useSiteData } from "~/composables/useSiteData"
+import { differenceInSeconds } from "date-fns"
 import Spinner from "~/components/common/Spinner.vue"
 import ContactForm   from "~/components/common/ContactForm.vue"
 import Success from "~/components/common/Success.vue"
-import useGoogleRecaptcha, {
-  RecaptchaAction,
-} from "~/composables/useGoogleRecaptcha"
+import useGoogleRecaptcha, { RecaptchaAction } from "~/composables/useGoogleRecaptcha"
 import type { GoogleRecaptchaResponse } from "~/models/types/google-recaptcha-response"
+import type {ContactFormResponse} from "~/models/types/contact-form-response";
 
 const { executeRecaptcha } = useGoogleRecaptcha();
 const { site, phone, getAddressByLabel } = useSiteData()
@@ -17,10 +17,14 @@ interface FormData {
   name: string,
   subject: string,
   email: string,
+  phone: string,
+  form_time: Date | string,
   message: string,
 }
 
-const apiUrl = useRuntimeConfig().public.apiUrl
+const runtimeConfig = useRuntimeConfig()
+const honeypotThreshold = runtimeConfig.public.honeypotThreshold
+
 const showSpinner = shallowRef(false)
 const showSuccess = shallowRef(false)
 const showForm = computed(() => !showSuccess.value && !showSpinner.value)
@@ -29,6 +33,8 @@ const getInitialFormData = (): FormData => ({
   name: "",
   subject: "",
   email: "",
+  phone: "",
+  form_time: new Date(),
   message: "",
 })
 
@@ -62,13 +68,20 @@ const submitForm = async () => {
       throw new Error('reCAPTCHA verification failed');
     }
 
-    const response = await fetch(`${apiUrl}/contact-form`, {
-      method: "POST",
-      body: JSON.stringify(form.value),
-    } )
-    if (!response.ok){
-      //Do something when request fails
-      return
+    const formData = form.value
+    const submissionDT = new Date()
+    const isOutsideThreshold = differenceInSeconds(submissionDT, formData.form_time) > parseInt(honeypotThreshold, 10)
+
+    if (formData.phone === '' && isOutsideThreshold) {
+      const { phone, form_time, ...contactForm } = formData
+      const contactFormResponse = await useApi<ContactFormResponse>('/api/contact-form', {
+        method: 'POST',
+        body: contactForm,
+      })
+
+      if (!contactFormResponse.success) {
+        throw new Error('Failed to submit form')
+      }
     }
     resetForm()
     showSpinner.value = false
@@ -100,6 +113,7 @@ const clearSuccess = () => {
               v-if="showForm"
               v-model:name.trim="form.name"
               v-model:email.trim="form.email"
+              v-model:phone.trim="form.phone"
               v-model:subject.trim="form.subject"
               v-model:message.trim="form.message"
               @submit="submitForm"

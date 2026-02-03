@@ -3,6 +3,7 @@ import type { NitroFetchOptions } from "nitropack";
 import type { FetchOptions } from 'ofetch'
 import { useQueryParamStore } from '~/stores/query-params.store'
 
+const isEmpty = (obj: Record<string, unknown>) => Object.keys(obj).length === 0;
 
 export default async function useApi<T>(path: NitroFetchRequest, opts?: FetchOptions) {
     const route = useRoute();

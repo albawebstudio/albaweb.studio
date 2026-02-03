@@ -1,0 +1,9 @@
+<mj-section>
+
+  <mj-column>
+    <mj-text>
+      &copy; 2007 - {{ currentYear }} Alba Web Studio LLC
+    </mj-text>
+  </mj-column>
+
+</mj-section>
