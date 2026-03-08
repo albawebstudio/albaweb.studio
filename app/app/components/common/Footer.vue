@@ -24,9 +24,7 @@ const currentYear = date.getFullYear();
                     type="button">
               <NuxtLink
                         :to="social.href"
-                        :external="social.external"
-                        target="_blank"
-                        rel="noopener">
+                        target="_blank">
                 <font-awesome-icon :icon="social.icon"/>
               </NuxtLink>
             </button>
@@ -41,8 +39,7 @@ const currentYear = date.getFullYear();
                   <NuxtLink :to="link.to"
                             :external="link.external"
                             class="text-gray-800 hover:text-gray-600 dark:text-slate-200 dark:hover:text-slate-400 font-semibold block pb-2 text-sm"
-                            :target="link.external ? '_blank' : '_self'"
-                            rel="noopener">{{ link.displayText }}</NuxtLink>
+                            :target="link.external ? '_blank' : '_self'">{{ link.displayText }}</NuxtLink>
                 </li>
               </ul>
             </div>
@@ -53,8 +50,7 @@ const currentYear = date.getFullYear();
                   <NuxtLink :to="link.to"
                             :external="link.external"
                             class="text-gray-800 hover:text-gray-600 dark:text-slate-200 dark:hover:text-slate-400 font-semibold block pb-2 text-sm"
-                            :target="link.external ? '_blank' : '_self'"
-                            rel="noopener">{{ link.displayText }}</NuxtLink>
+                            :target="link.external ? '_blank' : '_self'">{{ link.displayText }}</NuxtLink>
                 </li>
               </ul>
             </div>

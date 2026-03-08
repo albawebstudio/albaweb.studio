@@ -407,13 +407,13 @@ DISPUTES MAY ALSO BE REFERRED TO ANOTHER ARBITRATION
     OR TO AN ARBITRATOR APPOINTED PURSUANT TO SECTION 5 OF THE
     FEDERAL ARBITRATION ACT.
 
-The JAMS Rules are available on its website at [http://www.jamsadr.com/rules-streamlined-arbitration/](http://www.jamsadr.com/rules-streamlined-arbitration/) or by calling JAMS at 800-352-5267. To commence an arbitration, a Demand for 
+The JAMS Rules are available on its website at [https://www.jamsadr.com/submit](https://www.jamsadr.com/submit) or by calling JAMS at 800-352-5267. To commence an arbitration, a Demand for 
 Arbitration is required to be executed and served on us. Service of the Demand for 
 Arbitration on us can be mailed to Alba Web Studio LLC, Attn: Legal Department, 202 N 
 Cedar Ave Suite #1, Owatonna, MN 55060, pursuant to the instructions provided by JAMS 
 to submit a Dispute for arbitration. Service of the Demand for Arbitration on you will be sent 
 to the Notice Address. Further instructions on submitting a Demand for Arbitration can be 
-found at [www.jamsadr.com](www.jamsadr.com/files/Uploads/Documents/JAMS_Arbitration_Demand.pdf). We 
+found at [https://www.jamsadr.com/submit](https://www.jamsadr.com/submit). We 
 will bear the cost of your initial filing fee.
 
 There is no judge or jury in arbitration, and court review of an arbitration award is limited. 
