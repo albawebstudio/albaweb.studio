@@ -1,10 +1,9 @@
-@import './types.css';
+@import "tailwindcss";
+@import "@nuxt/ui";
+@import "./types.css";
 html {
     scroll-behavior: smooth;
 }
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 .bg-linkedin {
     background-color: #0a66c2;
@@ -14,4 +13,19 @@ html {
 }
 .bg-github {
     background-color: #333333;
+}
+
+@theme: {
+    --color-picton-blue: #46A5E5;
+    --color-picton-blue-50: #E7F3FC;
+    --color-picton-blue-100: #D5EBF9;
+    --color-picton-blue-200: #B1D9F4;
+    --color-picton-blue-300: #8EC8EF;
+    --color-picton-blue-400: #6AB6EA;
+    --color-picton-blue-500: #46A5E5;
+    --color-picton-blue-600: #1E8BD5;
+    --color-picton-blue-700: #176BA4;
+    --color-picton-blue-800: #104B73;
+    --color-picton-blue-900: #092B41;
+    --color-picton-blue-950: #061B29;
 }

@@ -2,25 +2,6 @@ import {config} from "@fortawesome/fontawesome-svg-core";
 
 /** @type {import('tailwindcss').Config} */
 
-const albawebstudio = {
-    colors: {
-        'picton-blue': {
-            DEFAULT: '#46A5E5',
-            50: '#E7F3FC',
-            100: '#D5EBF9',
-            200: '#B1D9F4',
-            300: '#8EC8EF',
-            400: '#6AB6EA',
-            500: '#46A5E5',
-            600: '#1E8BD5',
-            700: '#176BA4',
-            800: '#104B73',
-            900: '#092B41',
-            950: '#061B29'
-        },
-    }
-}
-
 export default {
     content: [
         "./app/components/**/*.{js,vue,ts}",
@@ -28,14 +9,8 @@ export default {
         "./app/pages/**/*.vue",
         "./app/plugins/**/*.{js,ts}",
         "./nuxt.config.{js,ts}",
-        "./app.vue"
     ],
     theme: {
-        extend: {
-            colors: {
-                primary: albawebstudio.colors['picton-blue'],
-            },
-        },
         fontFamily: {
             revolin: ['Revolin', 'sans-serif'],
             'all-genders': ['All-Genders', 'sans-serif'],

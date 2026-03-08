@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    compatibilityDate: '2024-11-01',
+    compatibilityDate: '2025-07-15',
 
     devtools: {enabled: true},
 
@@ -14,25 +14,22 @@ export default defineNuxtConfig({
         }
     },
 
-    postcss: {
-        plugins: {
-            tailwindcss: {},
-            autoprefixer: {},
-        },
-    },
-
     css: [
         '~/assets/css/tailwind.css',
         '@fortawesome/fontawesome-svg-core/styles.css',
     ],
 
+    ui: {
+        theme: {
+            colors: ['picton-blue'],
+        }
+    },
+
     modules: [
-        "@nuxtjs/tailwindcss",
         'nuxt-security',
         '@nuxt/content',
+        '@nuxt/ui',
         'nuxt-gtag',
-        'nuxt-lodash',
-        '@pinia/nuxt',
     ],
 
     build: {
@@ -41,19 +38,37 @@ export default defineNuxtConfig({
         ]
     },
 
+    security: {
+        headers: {
+            contentSecurityPolicy: {
+                'img-src': [
+                    "'self'",
+                    "data:",
+
+                ],
+                'script-src': [
+                    "'self'",
+                    "'unsafe-eval'",  // Required for the QR code library
+                    'https:',
+                    "'unsafe-inline'",
+                    "https://static.cloudflareinsights.com/"
+                ],
+            }
+        },
+    },
+
     gtag: {
         id: process.env.GAG_ID
     },
 
-    content: {
-        markdown: {
-            toc: {
-                depth: 3,
-                searchDepth: 3
-            },
-            rehypePlugins: [
-                'rehype-external-links'
-            ]
+    nitro: {
+        preset: "cloudflare_module",
+        experimental: {
+            database: true, // Enable experimental database features
+        },
+        cloudflare: {
+            deployConfig: true,
+            nodeCompat: true,
         }
     },
 
