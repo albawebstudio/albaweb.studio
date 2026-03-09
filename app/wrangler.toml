@@ -5,9 +5,3 @@ compatibility_date = "2025-07-15"
 binding = "DB"
 database_name = "albaws-content-db"
 database_id = "42eb39b2-fb1f-47e7-8195-9255adb5fdec"
-
-[env.preview]
-[[env.preview.d1_databases]]
-binding = "DB"
-database_name = "albaweb-preview-content-db"
-database_id = "ea524786-a836-4c08-806f-27fb454fe3ee"
