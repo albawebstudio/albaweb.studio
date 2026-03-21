@@ -13,6 +13,7 @@ can expect from us and what we expect from you.
 In accessing, browsing and/or using any area of the Website, you acknowledge that you have read,
 understand, and agree to be bound by these Terms and Conditions. We may make revisions to these
 Terms from time to time. By using the Website, you agree to be bound by such revisions and should
+Terms from time to time. By using the Website, you agree to be bound by such revisions and should
 therefore periodically visit this page to determine the then current version of these Terms to which you
 are bound. We may modify, update, or change these Terms from time to time without prior notice. We
 will endeavor to inform existing users when these Terms are revised by posting a Notice on the
@@ -413,7 +414,7 @@ Arbitration on us can be mailed to Alba Web Studio LLC, Attn: Legal Department, 
 Cedar Ave Suite #1, Owatonna, MN 55060, pursuant to the instructions provided by JAMS 
 to submit a Dispute for arbitration. Service of the Demand for Arbitration on you will be sent 
 to the Notice Address. Further instructions on submitting a Demand for Arbitration can be 
-found at [https://www.jamsadr.com/submit](https://www.jamsadr.com/submit). We 
+found at [www.jamsadr.com](https://www.jamsadr.com/submit). We 
 will bear the cost of your initial filing fee.
 
 There is no judge or jury in arbitration, and court review of an arbitration award is limited. 

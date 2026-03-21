@@ -1,7 +1,6 @@
 import {config} from "@fortawesome/fontawesome-svg-core";
 
 /** @type {import('tailwindcss').Config} */
-
 export default {
     content: [
         "./app/components/**/*.{js,vue,ts}",
@@ -10,12 +9,6 @@ export default {
         "./app/plugins/**/*.{js,ts}",
         "./nuxt.config.{js,ts}",
     ],
-    theme: {
-        fontFamily: {
-            revolin: ['Revolin', 'sans-serif'],
-            'all-genders': ['All-Genders', 'sans-serif'],
-        }
-    },
     plugins: [
         require('@tailwindcss/typography')
     ],
