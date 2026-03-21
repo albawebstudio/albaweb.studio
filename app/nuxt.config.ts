@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-    compatibilityDate: '2024-11-01',
+    compatibilityDate: '2025-07-15',
 
     devtools: {enabled: true},
 
@@ -19,10 +19,17 @@ export default defineNuxtConfig({
         '@fortawesome/fontawesome-svg-core/styles.css',
     ],
 
+    ui: {
+        theme: {
+            colors: ['picton-blue'],
+        }
+    },
+
     modules: [
         "@nuxt/ui",
         'nuxt-security',
         '@nuxt/content',
+        '@nuxt/ui',
         'nuxt-gtag',
     ],
 
@@ -30,6 +37,25 @@ export default defineNuxtConfig({
         transpile: [
             '@fortawesome/vue-fontawesome'
         ]
+    },
+
+    security: {
+        headers: {
+            contentSecurityPolicy: {
+                'img-src': [
+                    "'self'",
+                    "data:",
+
+                ],
+                'script-src': [
+                    "'self'",
+                    "'unsafe-eval'",  // Required for the QR code library
+                    'https:',
+                    "'unsafe-inline'",
+                    "https://static.cloudflareinsights.com/"
+                ],
+            }
+        },
     },
 
     gtag: {

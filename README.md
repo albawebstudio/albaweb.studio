@@ -16,7 +16,6 @@ This is the base repository for the Alba Web Studio website. The site leverages 
 
 Each folder should have its own README.md file with instruction for installing.
 
-
 ## Assets
 
 ### Color Scheme

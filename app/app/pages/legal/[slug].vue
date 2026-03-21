@@ -1,7 +1,4 @@
 <script setup lang="ts">
-definePageMeta({
-  layout: "default",
-});
 const route = useRoute();
 const { data: article } = await useAsyncData(route.path, () => {
   return queryCollection('legal').path(route.path).first()
