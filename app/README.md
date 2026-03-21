@@ -74,9 +74,27 @@ bun run preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
-## Assets
+## Fetch ENV vars
 
-### Images
+```shell
+aws ssm get-parameter --region us-east-1 \
+	--name /alba-web-studio/app/.env.<envrironment> \
+	--profile default \
+	--query Parameter.Value \
+	--with-decryption \
+	--output text > ./app/.env.<envrironment>
+```
 
-- Photo by [charlesdeluvio](https://unsplash.com/@charlesdeluvio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/person-facing-computer-desktop-pjAH2Ax4uWk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+If you need to make changes to the file, be sure to push the changes back to AWS. You can modify this command to push a
+new revision to AWS SSM.
+
+```shell
+aws ssm put-parameter \
+    --region us-east-1 \
+    --name /alba-web-studio/app/.env.<enviornment> \
+    --profile default \
+    --value file://app/.env.<enviornment> \
+--type "SecureString" \
+--overwrite
+```
   

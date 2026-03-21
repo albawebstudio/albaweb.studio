@@ -14,25 +14,16 @@ export default defineNuxtConfig({
         }
     },
 
-    postcss: {
-        plugins: {
-            tailwindcss: {},
-            autoprefixer: {},
-        },
-    },
-
     css: [
-        '~/assets/css/tailwind.css',
+        '~/assets/css/main.css',
         '@fortawesome/fontawesome-svg-core/styles.css',
     ],
 
     modules: [
-        "@nuxtjs/tailwindcss",
+        "@nuxt/ui",
         'nuxt-security',
         '@nuxt/content',
         'nuxt-gtag',
-        'nuxt-lodash',
-        '@pinia/nuxt',
     ],
 
     build: {
@@ -45,23 +36,42 @@ export default defineNuxtConfig({
         id: process.env.GAG_ID
     },
 
-    content: {
-        markdown: {
-            toc: {
-                depth: 3,
-                searchDepth: 3
-            },
-            rehypePlugins: [
-                'rehype-external-links'
-            ]
-        }
-    },
-
     vite: {
         server: {
             watch: {
                 usePolling: true,
             },
+        },
+        optimizeDeps: {
+            include: [
+                'remark-gfm',
+                'remark-emoji',
+                'remark-mdc',
+                'remark-rehype',
+                'rehype-raw',
+                'parse5',
+                'unist-util-visit',
+                'unified',
+                'debug'
+            ]
+        }
+    },
+
+    security: {
+        nonce: true,
+        headers: {
+            contentSecurityPolicy: {
+                'img-src': ["'self'", "data:", "https:"],
+                'script-src': [
+                    "'self'",
+                    "https:",
+                    "'unsafe-inline'",
+                    "'unsafe-eval'", // <--- REQUIRED for WebAssembly/SQLite
+                    "'wasm-unsafe-eval'", // <--- Modern browsers prefer this for WASM
+                ],
+                // Also recommended: allow connect-src if your API is on a different domain
+                'connect-src': ["'self'", "https:", process.env.AWS_API_URL || '']
+            }
         },
     },
 

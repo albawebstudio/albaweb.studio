@@ -1,24 +1,12 @@
 import type { NitroFetchRequest } from 'nitropack'
 import type { NitroFetchOptions } from "nitropack";
 import type { FetchOptions } from 'ofetch'
-import { useQueryParamStore } from '~/stores/query-params.store'
 
-const isEmpty = (obj: Record<string, unknown>) => Object.keys(obj).length === 0;
 
 export default async function useApi<T>(path: NitroFetchRequest, opts?: FetchOptions) {
     const route = useRoute();
 
     const propsToAddToBody: Record<string, any> = {};
-
-    // Handle url query param mutations
-    const queryStore = useQueryParamStore()
-    if (!isEmpty(route.query)) {
-        queryStore.setParameters(route.query)
-    }
-
-    if (queryStore.thereAreQueryStrings) {
-        propsToAddToBody['urlQueryParams'] = queryStore.queryParams;
-    }
 
     const headers = import.meta.server ? useRequestHeaders() : {};
     const request: NitroFetchOptions<NitroFetchRequest, any> = {

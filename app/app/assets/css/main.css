@@ -1,0 +1,47 @@
+@import './types.css';
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+html {
+    scroll-behavior: smooth;
+}
+
+.bg-linkedin {
+    background-color: #0a66c2;
+}
+.bg-instagram {
+    background-color: #ff0069;
+}
+.bg-github {
+    background-color: #333333;
+}
+@theme {
+    --font-revolin: 'Revolin', 'sans-serif';
+    --font-all-genders: 'All-Genders', 'sans-serif';
+
+    --color-primary: var(--color-picton-blue);
+    --color-primary-50: var(--color-picton-blue-50);
+    --color-primary-100: var(--color-picton-blue-100);
+    --color-primary-200: var(--color-picton-blue-200);
+    --color-primary-300: var(--color-picton-blue-300);
+    --color-primary-400: var(--color-picton-blue-400);
+    --color-primary-500: var(--color-picton-blue-500);
+    --color-primary-600: var(--color-picton-blue-600);
+    --color-primary-700: var(--color-picton-blue-700);
+    --color-primary-800: var(--color-picton-blue-800);
+    --color-primary-900: var(--color-picton-blue-900);
+    --color-primary-950: var(--color-picton-blue-950);
+
+    --color-picton-blue: #46A5E5;
+    --color-picton-blue-50: #E7F3FC;
+    --color-picton-blue-100: #D5EBF9;
+    --color-picton-blue-200: #B1D9F4;
+    --color-picton-blue-300: #8EC8EF;
+    --color-picton-blue-400: #6AB6EA;
+    --color-picton-blue-500: #46A5E5;
+    --color-picton-blue-600: #1E8BD5;
+    --color-picton-blue-700: #176BA4;
+    --color-picton-blue-800: #104B73;
+    --color-picton-blue-900: #092B41;
+    --color-picton-blue-950: #061B29;
+}

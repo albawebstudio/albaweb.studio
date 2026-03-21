@@ -239,7 +239,7 @@ the information in accordance with the privacy policy under which it was collect
 If you feel that our Website is not following our privacy policy, you may contact us at our corporate
 office via telephone. You may also direct inquiries to [support@albawebstudio.com](mailto:support@albawebstudio.com). The Federal Trade
 Commission also has a complaint hotline that can be reached by phone at (202) 382-4357 or online at
-[www.ftc.gov/ftc/complaint.htm](www.ftc.gov/ftc/complaint.htm).
+[https://reportfraud.ftc.gov/](https://reportfraud.ftc.gov/).
 
 ## Additional questions
 
