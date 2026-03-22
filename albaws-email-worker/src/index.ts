@@ -1,5 +1,5 @@
-import {EmailMessage} from "cloudflare:email";
-import {createMimeMessage} from 'mimetext';
+import { EmailMessage } from "cloudflare:email";
+import { createMimeMessage, Mailbox } from 'mimetext';
 import contactTemplate from './templates/alba-web-studio-contact.html';
 
 interface ContactFormData {
@@ -40,9 +40,14 @@ export default {
 			const msg = createMimeMessage();
 			msg.setSender({ name: 'Contact Form', addr: env.EMAIL_SENDER });
 			msg.setRecipient(env.EMAIL_RECIPIENT);
-			msg.setHeader('Reply-To', formData.email);
-
-			msg.setSubject(`Alba Web Studio - Contact Form`);
+			msg.setSubject(`[Inquiry] ${formData.subject}`);
+			if (formData.email) {
+				const replyTo = new Mailbox({
+					name: formData.name.trim(),
+					addr: formData.email.trim()
+				});
+				msg.setHeader('Reply-To', replyTo);
+			}
 
 			msg.addMessage({
 				contentType: 'text/html',
