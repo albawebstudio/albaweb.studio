@@ -47,8 +47,8 @@
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
 	"vars": {
-		"EMAIL_RECIPIENT": "support@albawebstudio.com",
-		"EMAIL_SENDER": "support@albawebstudio.com"
+		"EMAIL_RECIPIENT": "aalba@albawebstudio.com",
+		"EMAIL_SENDER": "aalba@albawebstudio.com"
 	}
 	/**
 	 * Static Assets
