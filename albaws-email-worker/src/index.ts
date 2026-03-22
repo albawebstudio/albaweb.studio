@@ -1,11 +1,13 @@
 import {EmailMessage} from "cloudflare:email";
 import {createMimeMessage} from 'mimetext';
+import contactTemplate from './templates/alba-web-studio-contact.html';
 
 interface ContactFormData {
 	name: string;
-	subject: string;
 	email: string;
+	subject: string;
 	message: string;
+	currentYear: string;
 }
 
 export interface Env {
@@ -24,20 +26,11 @@ export default {
 		try {
 			// Cast the JSON to your specific interface
 			const formData = await request.json() as ContactFormData;
+			formData.currentYear = new Date().getFullYear().toString();
 
-			// The HTML Template with placeholders
-			// Apply data to template
-			// We use 'as any' for the key to satisfy TS during the loop
-			let body = `
-        <div style="font-family: sans-serif; line-height: 1.5;">
-          <h2>New Message from {{name}}</h2>
-          <p><strong>Reply-To:</strong> {{email}}</p>
-          <p><strong>Subject:</strong> {{subject}}</p>
-          <div style="border-left: 4px solid #ccc; padding-left: 10px; margin-top: 20px;">
-            {{message}}
-          </div>
-        </div>
-      `;
+			// Import template
+			let body = contactTemplate;
+
 			for (const key in formData) {
 				const value = formData[key as keyof ContactFormData];
 				const placeholder = new RegExp(`{{${key}}}`, 'g');
@@ -47,9 +40,9 @@ export default {
 			const msg = createMimeMessage();
 			msg.setSender({ name: 'Contact Form', addr: env.EMAIL_SENDER });
 			msg.setRecipient(env.EMAIL_RECIPIENT);
+			msg.setHeader('Reply-To', formData.email);
 
-			// Now TS knows formData.subject exists!
-			msg.setSubject(`[Website Form] ${formData.subject}`);
+			msg.setSubject(`Alba Web Studio - Contact Form`);
 
 			msg.addMessage({
 				contentType: 'text/html',
@@ -67,6 +60,7 @@ export default {
 			return Response.json({ success: true });
 
 		} catch (error) {
+			console.log(error);
 			return Response.json({ success: false, error: "Invalid Data" }, { status: 400 });
 		}
 	}
