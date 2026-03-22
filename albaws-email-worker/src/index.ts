@@ -33,7 +33,7 @@ export default {
 
 			for (const key in formData) {
 				const value = formData[key as keyof ContactFormData];
-				const placeholder = new RegExp(`{{${key}}}`, 'g');
+				const placeholder = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
 				body = body.replace(placeholder, value || "");
 			}
 
