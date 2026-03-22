@@ -64,9 +64,9 @@ export default {
 
 			return Response.json({ success: true });
 
-		} catch (error) {
+		} catch (error: any) {
 			console.log(error);
-			return Response.json({ success: false, error: "Invalid Data" }, { status: 400 });
+			return Response.json({ success: false, error: error.message }, { status: 400 });
 		}
 	}
 };
