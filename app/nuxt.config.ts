@@ -68,15 +68,18 @@ export default defineNuxtConfig({
                 'img-src': ["'self'", "data:", "https:", "blob:"],
                 'script-src': [
                     "'self'",
-                    "'unsafe-inline'", // Required for Nuxt/Vite inline scripts
+                    "'unsafe-inline'",
                     "'unsafe-eval'",
                     "'wasm-unsafe-eval'",
-                    // REMOVED 'strict-dynamic' to restore the domain list below
                     "http://localhost:*",
+                    "blob:",                             // <--- ADD THIS for Web Workers
                     "https://www.google.com/recaptcha/",
                     "https://www.gstatic.com/recaptcha/",
-                    "https://www.googletagmanager.com/"
+                    "https://www.googletagmanager.com/",
+                    "https://static.cloudflareinsights.com"
                 ],
+                // For better security, you can explicitly define worker-src
+                'worker-src': ["'self'", "blob:"],       // <--- Recommended for modern apps
                 'connect-src': [
                     "'self'",
                     "http://localhost:*",
@@ -92,7 +95,6 @@ export default defineNuxtConfig({
                     "https://www.google.com/recaptcha/",
                     "https://recaptcha.google.com/recaptcha/"
                 ],
-                // Nuxt 4 / Vite requires this for the module loading you see in your error
                 'base-uri': ["'self'"],
                 'object-src': ["'none'"]
             }
