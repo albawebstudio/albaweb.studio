@@ -6,7 +6,6 @@ export default defineNuxtConfig({
 
     runtimeConfig: {
         recaptchaSecretKey: process.env.RECAPTCHA_SECRET_KEY,
-        apiUrl: process.env.AWS_API_URL,
         public: {
             gtagId: process.env.GAG_ID,
             recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
@@ -51,15 +50,11 @@ export default defineNuxtConfig({
         },
         optimizeDeps: {
             include: [
-                'remark-gfm',
-                'remark-emoji',
-                'remark-mdc',
-                'remark-rehype',
-                'rehype-raw',
-                'parse5',
-                'unist-util-visit',
-                'unified',
-                'debug'
+                '@fortawesome/fontawesome-svg-core',
+                '@fortawesome/free-solid-svg-icons',
+                '@fortawesome/free-brands-svg-icons',
+                'vue-recaptcha-v3', // CJS
+                'date-fns'
             ]
         }
     },
@@ -73,14 +68,21 @@ export default defineNuxtConfig({
                     "'self'",
                     "https:",
                     "'unsafe-inline'",
-                    "'unsafe-eval'", // <--- REQUIRED for WebAssembly/SQLite
-                    "'wasm-unsafe-eval'", // <--- Modern browsers prefer this for WASM
+                    "'unsafe-eval'",
+                    "'wasm-unsafe-eval'",
+                    "https://www.google.com/recaptcha/", // Allow reCAPTCHA scripts
+                    "https://www.gstatic.com/recaptcha/"
                 ],
-                // Also recommended: allow connect-src if your API is on a different domain
                 'connect-src': [
                     "'self'",
-                    "https:", process.env.AWS_API_URL || '',
-                    "https://static.cloudflareinsights.com/"
+                    "https://static.cloudflareinsights.com/",
+                    "https://www.google.com/recaptcha/", // Fixes your current error
+                    "https://www.gstatic.com/recaptcha/"
+                ],
+                'frame-src': [
+                    "'self'",
+                    "https://www.google.com/recaptcha/", // Required for the checkbox/challenge iframe
+                    "https://recaptcha.google.com/recaptcha/"
                 ]
             }
         },
