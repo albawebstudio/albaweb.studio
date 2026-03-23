@@ -62,33 +62,39 @@ export default defineNuxtConfig({
     security: {
         nonce: true,
         headers: {
-            // This handles how the DOCUMENT embeds others
             crossOriginEmbedderPolicy: 'unsafe-none',
-            // This handles how the BROWSER interprets resource sharing
-            // Setting this to 'cross-origin' is often the "magic fix" for extensions
             crossOriginResourcePolicy: 'cross-origin',
             contentSecurityPolicy: {
-                'img-src': ["'self'", "data:", "https:"],
+                'img-src': ["'self'", "data:", "https:", "blob:"],
                 'script-src': [
                     "'self'",
-                    "https:",
-                    "'unsafe-inline'",
+                    "'unsafe-inline'", // Required for Nuxt/Vite inline scripts
                     "'unsafe-eval'",
                     "'wasm-unsafe-eval'",
-                    "https://www.google.com/recaptcha/", // Allow reCAPTCHA scripts
-                    "https://www.gstatic.com/recaptcha/"
+                    // REMOVED 'strict-dynamic' to restore the domain list below
+                    "http://localhost:*",
+                    "https://www.google.com/recaptcha/",
+                    "https://www.gstatic.com/recaptcha/",
+                    "https://www.googletagmanager.com/"
                 ],
                 'connect-src': [
                     "'self'",
+                    "http://localhost:*",
+                    "ws://localhost:*",
                     "https://static.cloudflareinsights.com/",
-                    "https://www.google.com/recaptcha/", // Fixes your current error
-                    "https://www.gstatic.com/recaptcha/"
+                    "https://www.google.com/recaptcha/",
+                    "https://www.gstatic.com/recaptcha/",
+                    "https://*.analytics.google.com",
+                    "https://*.google-analytics.com"
                 ],
                 'frame-src': [
                     "'self'",
-                    "https://www.google.com/recaptcha/", // Required for the checkbox/challenge iframe
+                    "https://www.google.com/recaptcha/",
                     "https://recaptcha.google.com/recaptcha/"
-                ]
+                ],
+                // Nuxt 4 / Vite requires this for the module loading you see in your error
+                'base-uri': ["'self'"],
+                'object-src': ["'none'"]
             }
         },
     },
