@@ -1,51 +1,72 @@
-import { readBody, createError, setResponseStatus } from 'h3'
+import { contactTemplate } from '../templates/contact';
+
+interface ContactFormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  currentYear: string;
+}
 
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig()
-  const body = await readBody<Record<string, unknown>>(event)
-
-  if (!config.apiUrl) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: 'Server misconfigured: runtimeConfig.apiUrl is missing',
-      data: {
-        hint: 'Ensure API_URL is set in the environment Nuxt is running with (e.g. app/.env).',
-      },
-    })
-  }
-
-  const upstreamUrl = `${config.apiUrl.replace(/\/$/, '')}/contact-form`
+  const cloudflareEnv = (event.context as any).cloudflare?.env;
+  const body = await readBody<Omit<ContactFormData, 'currentYear'>>(event);
 
   try {
-    // Use raw so we can see upstream status/body if it fails
-    const res = await $fetch.raw(upstreamUrl, {
-      method: 'POST',
-      body: JSON.stringify(body),
-      headers: {
-        'content-type': 'application/json',
-        'accept': 'application/json',
-      },
-    })
+    const formData: ContactFormData = {
+      ...body,
+      currentYear: new Date().getFullYear().toString(),
+    };
 
-    // Mirror upstream status (optional, but nice)
-    setResponseStatus(event, res.status)
+    let emailBody = contactTemplate;
 
-    return res._data
-  } catch (err: any) {
-    // Try to expose useful debugging info (especially for API Gateway errors)
-    console.log(err);
-    const statusCode = err?.response?.status ?? 502
-    const upstreamBody = err?.response?._data
+    for (const key in formData) {
+      const value = formData[key as keyof ContactFormData];
+      const placeholder = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
+      emailBody = emailBody.replace(placeholder, value || '');
+    }
 
+    if (!cloudflareEnv) {
+      console.warn('[contact-form] Cloudflare runtime not available; skipping email send in local dev.');
+      return { success: true, local: true };
+    }
+
+    const { EmailMessage } = await import('cloudflare:email');
+    const { createMimeMessage, Mailbox } = await import('mimetext');
+
+    const msg = createMimeMessage();
+    msg.setSender({ name: 'Contact Form', addr: cloudflareEnv.EMAIL_SENDER });
+    msg.setRecipient(cloudflareEnv.EMAIL_RECIPIENT);
+    msg.setSubject(`[Inquiry] ${formData.subject}`);
+
+    if (formData.email) {
+      const replyTo = new Mailbox({
+        name: formData.name.trim(),
+        addr: formData.email.trim(),
+      });
+      msg.setHeader('Reply-To', replyTo);
+    }
+
+    msg.addMessage({
+      contentType: 'text/html',
+      data: emailBody,
+    });
+
+    const emailMessage = new EmailMessage(
+      cloudflareEnv.EMAIL_SENDER,
+      cloudflareEnv.EMAIL_RECIPIENT,
+      msg.asRaw()
+    );
+
+    await cloudflareEnv.EMAIL.send(emailMessage);
+
+    return { success: true };
+  } catch (error: any) {
+    console.log(error);
     throw createError({
-      statusCode,
-      statusMessage: 'Upstream contact-form request failed',
-      data: {
-        upstreamUrl,
-        upstreamStatus: err?.response?.status,
-        upstreamBody,
-        message: err?.message ?? 'Unknown error',
-      },
-    })
+      statusCode: 400,
+      statusMessage: error.message,
+      data: { success: false },
+    });
   }
-})
+});
