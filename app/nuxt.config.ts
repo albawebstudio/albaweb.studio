@@ -62,6 +62,11 @@ export default defineNuxtConfig({
     security: {
         nonce: true,
         headers: {
+            // This handles how the DOCUMENT embeds others
+            crossOriginEmbedderPolicy: 'unsafe-none',
+            // This handles how the BROWSER interprets resource sharing
+            // Setting this to 'cross-origin' is often the "magic fix" for extensions
+            crossOriginResourcePolicy: 'cross-origin',
             contentSecurityPolicy: {
                 'img-src': ["'self'", "data:", "https:"],
                 'script-src': [
