@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
     }
 
     const { EmailMessage } = await import('cloudflare:email');
-    const { createMimeMessage, Mailbox } = await import('mimetext');
+    const { createMimeMessage, Mailbox } = await import('mimetext/browser');
 
     const msg = createMimeMessage();
     msg.setSender({ name: 'Contact Form', addr: cloudflareEnv.EMAIL_SENDER });
