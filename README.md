@@ -22,13 +22,18 @@ Each folder should have its own README.md file with instruction for installing.
 
 MJ Collective Events color scheme is based on the following colors:
 
-| Color Name    | Preview                                                                   |
-|---------------|---------------------------------------------------------------------------|
-| Evergreen     | ![#112702](https://img.shields.io/badge/-112702-112702?style=flat-square) |
-| Space Indigo  | ![#2d2d57](https://img.shields.io/badge/-2d2d57-2d2d57?style=flat-square) |
-| Dusty Taupe   | ![#a49382](https://img.shields.io/badge/-a49382-a49382?style=flat-square) |
-| Rosy Taupe    | ![#ad8c8c](https://img.shields.io/badge/-ad8c8c-ad8c8c?style=flat-square) |
-| Vanilla Cream | ![#efe7d1](https://img.shields.io/badge/-efe7d1-efe7d1?style=flat-square) |
+| Color Name  | Preview                                                                   |
+|-------------|---------------------------------------------------------------------------|
+| Picton Blue | ![#46A5E5](https://img.shields.io/badge/-46A5E5-46A5E5?style=flat-square) |
+
+### Fonts
+
+| Font Name   | Preview                                                                   |
+|-------------|---------------------------------------------------------------------------|
+| Open Sans   | [Open Sans](https://fonts.google.com/specimen/Open+Sans)                  |
+| All-Genders | ![#46A5E5](https://img.shields.io/badge/-46A5E5-46A5E5?style=flat-square) |
+--font-revolin: 'Revolin', 'sans-serif';
+--font-all-genders: 'All-Genders', 'sans-serif';
 
 ### Images
 

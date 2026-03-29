@@ -110,6 +110,42 @@ export function usePortfolioData() {
                 icon: null,
                 displayText: "View Site"
             }
+        },
+        {
+            title: "Andrew Alba",
+            service: "Website",
+            content: [
+                "We crafted this site as a bold, expressive portfolio that showcases Andrew Alba’s artwork and creative voice, inviting visitors to explore his work, story, and evolving artistic journey.",
+            ],
+            img: {
+                src: "/portfolio/andrewalba.com.png",
+                alt: "Andrew Alba"
+            },
+            cta: {
+                title: "Andrew Alba",
+                to: "https://andrewalba.com",
+                external: true,
+                icon: null,
+                displayText: "View Site"
+            }
+        },
+        {
+            title: "Meals on Wheels",
+            service: "Website",
+            content: [
+                "This platform is a comprehensive meal management and ordering portal designed to streamline the delivery of nutritious food to seniors and homebound individuals through features such as personalized menu selection, automated recurring orders, and integrated logistics for volunteer delivery tracking.",
+            ],
+            img: {
+                src: "/portfolio/orders.meals-on-wheels.com.png",
+                alt: "Meals on Wheels"
+            },
+            cta: {
+                title: "Meals on Wheels",
+                to: "https://meals-on-wheels.com",
+                external: true,
+                icon: null,
+                displayText: "View Site"
+            }
         }
     ])
     const portfolio = ref<Portfolio>({

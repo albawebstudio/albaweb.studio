@@ -9,7 +9,7 @@ const { about } = useAboutData();
   <section id="about-us" class="h-full min-h-screen w-full bg-slate-200 dark:bg-gray-900 text-black dark:text-slate-200 pt-12 p-4">
 
     <div class="text-center w-full sm:w-1/2 mx-auto mb-12">
-      <h2 class="font-all-genders text-4xl leading-relaxed uppercase">{{ about.title }}</h2>
+      <h2 class="font-inter text-4xl leading-relaxed uppercase">{{ about.title }}</h2>
       <div v-for="content in about.content" class="text-secondary mt-8" v-html="content"></div>
     </div>
 

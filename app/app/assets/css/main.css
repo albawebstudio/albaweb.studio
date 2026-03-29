@@ -1,4 +1,5 @@
-@import './types.css';
+/*@import './types.css';*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
 @import "@nuxt/ui";
 
@@ -16,8 +17,8 @@ html {
     background-color: #333333;
 }
 @theme {
-    --font-revolin: 'Revolin', 'sans-serif';
-    --font-all-genders: 'All-Genders', 'sans-serif';
+    --font-open-sans: 'Open Sans', 'sans-serif';
+    --font-inter: 'Inter', 'sans-serif';
 
     --color-primary: var(--color-picton-blue);
     --color-primary-50: var(--color-picton-blue-50);
