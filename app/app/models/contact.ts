@@ -1,6 +1,6 @@
 export interface Contact {
     title:   string;
-    content: string;
+    content: string[];
     companyLabel: string;
     supportLabel: string;
     supportUrl: string;

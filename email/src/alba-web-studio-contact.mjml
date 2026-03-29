@@ -1,13 +1,13 @@
 <mjml>
     <mj-head>
         <mj-font name="Montserrat" href="https://fonts.googleapis.com/css?family=Montserrat:700,800,900"/>
-        <mj-font name="Nunito" href="https://fonts.googleapis.com/css2?family=Nunito:200,300,400" />
+        <mj-font name="Nunito" href="https://fonts.googleapis.com/css?family=Nunito:200,300,400" />
 
         <mj-attributes>
             <mj-text align="center" color="#555"/>
         </mj-attributes>
         <mj-preview>
-            <!-- TODO Add mail preview -->
+            Alba Web Studio Contact Form
         </mj-preview>
     </mj-head>
 
