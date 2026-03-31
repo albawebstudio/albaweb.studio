@@ -1,6 +1,5 @@
 name = "albawebstudio"
 compatibility_date = "2025-07-15"
-pages_build_output_dir = ".output/public"
 
 [[d1_databases]]
 binding = "DB"
