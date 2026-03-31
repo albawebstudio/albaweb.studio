@@ -6,10 +6,3 @@ pages_build_output_dir = ".output/public"
 binding = "DB"
 database_name = "albaws-content-db"
 database_id = "42eb39b2-fb1f-47e7-8195-9255adb5fdec"
-
-[[send_email]]
-name = "EMAIL"
-
-[vars]
-EMAIL_RECIPIENT = "aalba@albawebstudio.com"
-EMAIL_SENDER = "aalba@albawebstudio.com"
