@@ -9,6 +9,7 @@ import type {
 export interface Site {
     title: string;
     legalName: string;
+    header: string;
     tagLine: string;
     url: string;
     addresses: Address[];

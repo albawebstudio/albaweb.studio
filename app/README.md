@@ -74,6 +74,29 @@ bun run preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
+## Assets
+
+### Color Scheme
+
+Alba Web Studio color scheme is based on the following colors:
+
+| Color Name  | Preview                                                                   |
+|-------------|---------------------------------------------------------------------------|
+| Picton Blue | ![#46A5E5](https://img.shields.io/badge/-46A5E5-46A5E5?style=flat-square) |
+
+### Fonts
+
+| Font Name   | Preview                                                                   |
+|-------------|---------------------------------------------------------------------------|
+| Open Sans   | [Open Sans](https://fonts.google.com/specimen/Open+Sans)                  |
+| All-Genders | ![#46A5E5](https://img.shields.io/badge/-46A5E5-46A5E5?style=flat-square) |
+--font-revolin: 'Revolin', 'sans-serif';
+--font-all-genders: 'All-Genders', 'sans-serif';
+
+### Images
+
+- Photo by [charlesdeluvio](https://unsplash.com/@charlesdeluvio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/person-facing-computer-desktop-pjAH2Ax4uWk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+
 ## Fetch ENV vars
 
 ```shell
@@ -84,8 +107,6 @@ aws ssm get-parameter --region us-east-1 \
 	--with-decryption \
 	--output text > ./app/.env.<envrironment>
 ```
-
-- Photo by [charlesdeluvio](https://unsplash.com/@charlesdeluvio?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/person-facing-computer-desktop-pjAH2Ax4uWk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
 
 ## Fetch ENV vars
 

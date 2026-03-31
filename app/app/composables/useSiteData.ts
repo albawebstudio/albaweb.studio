@@ -102,11 +102,11 @@ export function useSiteData() {
     ])
     const useful_links = ref<Link[]>([
         {
-            title: "More about us",
-            to: "/#about-us",
-            external: false,
+            title: "Create a Support Ticket",
+            to: "https://albawebstudio.raiseaticket.com/support/#/newticket",
+            external: true,
             icon: null,
-            displayText: "About Us"
+            displayText: "Request Support"
         },
         /*{
             title: "Check out our blog",
@@ -156,7 +156,8 @@ export function useSiteData() {
     const site = ref<Site>({
         title: "Alba Web Studio",
         legalName: "Alba Web Studio LLC",
-        tagLine: "",
+        header: "Welcome to <span class=\"text-primary\">Alba</span> Web Studio",
+        tagLine: "Bringing Your Brand to Life, One Pixel at a Time.",
         url: "https://www.albaweb.studio",
         addresses: addresses.value,
         email: emails.value,

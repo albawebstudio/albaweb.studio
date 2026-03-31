@@ -14,7 +14,7 @@ const toggleNav = () => (showMenu.value = !showMenu.value);
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="/logos/albawebstudio-logo-dark.svg" class="h-8" alt="Alba Web Studio"/>
-        <span class="self-center font-all-genders text-2xl font-semibold whitespace-nowrap dark:text-white">Alba <span class="font-revolin">Web Studio</span></span>
+        <span class="self-center font-inter text-2xl font-extrabold whitespace-nowrap text-primary">Alba <span class="font-semibold font-open-sans text-white">Web Studio</span></span>
       </a>
       <button @click="toggleNav"
               data-collapse-toggle="navbar-default"

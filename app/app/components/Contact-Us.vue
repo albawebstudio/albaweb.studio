@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, shallowRef } from 'vue'
 import { useSiteData } from "~/composables/useSiteData"
+import { useContactData } from "~/composables/useContactData"
 import { differenceInSeconds } from "date-fns"
 import Spinner from "~/components/common/Spinner.vue"
 import ContactForm   from "~/components/common/ContactForm.vue"
@@ -10,6 +11,7 @@ import type { GoogleRecaptchaResponse } from "~/models/types/google-recaptcha-re
 import type {ContactFormResponse} from "~/models/types/contact-form-response";
 
 const { executeRecaptcha } = useGoogleRecaptcha();
+const { contact } = useContactData()
 const { site, phone, getAddressByLabel } = useSiteData()
 const address = getAddressByLabel("office")
 
@@ -101,11 +103,11 @@ const clearSuccess = () => {
   <section id="contact-us" class="bg-white dark:bg-gray-900">
     <div class="px-2">
       <div class="flex flex-wrap mx-4">
-        <div class="w-full md:w-2/3 py-8 lg:py-16 px-4 mx-auto max-w-screen-md space-y-4">
-          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
-          <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
-            We’d love to hear about your web development needs! Whether you’re looking to build a custom website, enhance your online presence, or need ongoing support, we’re here to help. Fill out our contact form to get started, and let’s create something amazing together!
-          </p>
+        <div class="w-full md:w-2/3 py-8 lg:py-16 px-4 mx-auto max-w-3xl space-y-4">
+          <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">{{ contact.title }}</h2>
+          <template v-for="(content, idx) in contact.content" :key="idx">
+            <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl" v-html="content"></p>
+          </template>
 
           <Spinner v-if="showSpinner" />
 
@@ -130,9 +132,21 @@ const clearSuccess = () => {
                 <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <p class="font-semibold text-lg dark:text-white">Company information:</p>
+            <p class="font-semibold text-lg dark:text-white">{{ contact.companyLabel }}</p>
           </div>
           <p class="text-gray-500 dark:gray-400">{{ site.legalName }}</p>
+
+          <div class="flex flex-col items-center space-x-2">
+            <div class="flex flex-col items-center justify-center w-10 h-10 bg-blue-500 rounded-full">
+              <svg class="w-6 h-6 text-white" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <!--!Font Awesome Pro v5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2026 Fonticons, Inc.-->
+                <path d="M400 208v96H176v-96h224m24-48H152c-13.255 0-24 10.745-24 24v144c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V184c0-13.255-10.745-24-24-24zm144 56h8V112c0-26.51-21.49-48-48-48H48C21.49 64 0 85.49 0 112v104h8c22.091 0 40 17.909 40 40s-17.909 40-40 40H0v104c0 26.51 21.49 48 48 48h480c26.51 0 48-21.49 48-48V296h-8c-22.091 0-40-17.909-40-40s17.909-40 40-40zm-40-38.372c-28.47 14.59-48 44.243-48 78.372s19.53 63.782 48 78.372V400H48v-65.628c28.471-14.59 48-44.243 48-78.372s-19.529-63.782-48-78.372V112h480v65.628z"/>
+              </svg>
+
+            </div>
+            <p class="font-semibold text-lg dark:text-white">{{ contact.supportLabel }}</p>
+          </div>
+          <p class="text-primary-600 dark:te  xt-primary-500 font-bold"><NuxtLink :to="contact.supportUrl">{{ contact.supportText }}</NuxtLink></p>
 
           <div class="flex flex-col items-center space-x-2">
             <div class="flex flex-col items-center justify-center w-10 h-10 bg-blue-500 rounded-full">
@@ -140,7 +154,7 @@ const clearSuccess = () => {
                 <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
               </svg>
             </div>
-            <p class="font-semibold text-lg dark:text-white">Location:</p>
+            <p class="font-semibold text-lg dark:text-white">{{ contact.locationLabel }}</p>
           </div>
           <p class="text-gray-500 dark:text-gray-400">{{ address?.address1 }} {{ address?.city }}, {{ address?.state }} {{ address?.zip }}</p>
 
@@ -150,10 +164,10 @@ const clearSuccess = () => {
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
               </svg>
             </div>
-            <p class="font-semibold text-lg dark:text-white">Call us:</p>
+            <p class="font-semibold text-lg dark:text-white">{{ contact.callLabel }}</p>
           </div>
-          <p class="text-gray-500 dark:text-gray-400">Call us! We are always happy to help.</p>
-          <p class="text-primary-600 dark:te  xt-primary-500"><NuxtLink :to="'tel:' + phone.raw">{{phone.formatted}}</NuxtLink></p>
+          <p class="text-gray-500 dark:text-gray-400">{{ contact.callContent }}</p>
+          <p class="text-primary-600 dark:te  xt-primary-500 font-bold"><NuxtLink :to="'tel:' + phone.raw">{{phone.formatted}}</NuxtLink></p>
         </div>
       </div>
     </div>
