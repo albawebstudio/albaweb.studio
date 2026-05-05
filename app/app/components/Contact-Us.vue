@@ -6,11 +6,8 @@ import { differenceInSeconds } from "date-fns"
 import Spinner from "~/components/common/Spinner.vue"
 import ContactForm   from "~/components/common/ContactForm.vue"
 import Success from "~/components/common/Success.vue"
-import useGoogleRecaptcha, { RecaptchaAction } from "~/composables/useGoogleRecaptcha"
-import type { GoogleRecaptchaResponse } from "~/models/types/google-recaptcha-response"
 import type {ContactFormResponse} from "~/models/types/contact-form-response";
 
-const { executeRecaptcha } = useGoogleRecaptcha();
 const { contact } = useContactData()
 const { site, phone, getAddressByLabel } = useSiteData()
 const address = getAddressByLabel("office")
@@ -23,9 +20,6 @@ interface FormData {
   form_time: Date | string,
   message: string,
 }
-
-const runtimeConfig = useRuntimeConfig()
-const honeypotThreshold = runtimeConfig.public.honeypotThreshold
 
 const showSpinner = shallowRef(false)
 const showSuccess = shallowRef(false)
@@ -58,25 +52,14 @@ const submitForm = async () => {
     return;
   }
   try{
-    const { token } = await executeRecaptcha(RecaptchaAction.login);
-    const verificationResponse = await useApi<GoogleRecaptchaResponse>('/api/recaptcha', {
-      method: 'POST',
-      body: {
-        token
-      }
-    })
-
-    if (!verificationResponse.success) {
-      throw new Error('reCAPTCHA verification failed');
-    }
 
     const formData = form.value
     const submissionDT = new Date()
-    const isOutsideThreshold = differenceInSeconds(submissionDT, formData.form_time) > parseInt(honeypotThreshold, 10)
+    const isOutsideThreshold = differenceInSeconds(submissionDT, formData.form_time) > 5
 
     if (formData.phone === '' && isOutsideThreshold) {
       const { phone, form_time, ...contactForm } = formData
-      const contactFormResponse = await useApi<ContactFormResponse>('/api/contact-form', {
+      const contactFormResponse = await useApi<ContactFormResponse>('/api/send', {
         method: 'POST',
         body: contactForm,
       })

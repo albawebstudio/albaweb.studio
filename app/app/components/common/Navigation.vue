@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import { useSiteData } from "~/composables/useSiteData";
 const { navigation } = useSiteData();
+const logo = '/albawebstudio-logo-light.svg'
+const darkLogo = '/albawebstudio-logo-dark.svg'
 
 const showMenu = ref(false);
 const toggleNav = () => (showMenu.value = !showMenu.value);
@@ -13,7 +15,19 @@ const toggleNav = () => (showMenu.value = !showMenu.value);
   <nav class="bg-white border-gray-200 dark:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="/logos/albawebstudio-logo-dark.svg" class="h-8" alt="Alba Web Studio"/>
+        <NuxtImg
+            :src="logo"
+            alt="Alba Web Studio"
+            class="block dark:hidden h-8"
+            provider="cloudflare"
+        />
+        <NuxtImg
+            :src="darkLogo"
+            alt="PAlba Web Studio"
+            class="hidden dark:block h-8"
+            provider="cloudflare"
+        />
+<!--        <img src="/logos/albawebstudio-logo-dark.svg" class="h-8" alt="Alba Web Studio"/>-->
         <span class="self-center font-inter text-2xl font-extrabold whitespace-nowrap text-primary">Alba <span class="font-semibold font-open-sans text-xl text-primary-300 dark:text-white">Web Studio</span></span>
       </a>
       <button @click="toggleNav"
