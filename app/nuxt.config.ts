@@ -5,11 +5,13 @@ export default defineNuxtConfig({
     devtools: {enabled: true},
 
     runtimeConfig: {
-        recaptchaSecretKey: process.env.RECAPTCHA_SECRET_KEY,
+        resendApiKey: process.env.RESEND_API_KEY ?? "",
+        contactName: process.env.CONTACT_NAME ?? "",
+        contactEmail: process.env.CONTACT_EMAIL ?? "",
+        toEmail: process.env.TO_EMAIL ?? "",
         public: {
             gtagId: process.env.GAG_ID,
-            recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
-            honeypotThreshold: process.env.HONEYPOT_THRESHOLD ?? "5",
+            resendTemplateId: process.env.RESEND_TEMPLATE_ID ?? "",
         }
     },
 
@@ -18,19 +20,19 @@ export default defineNuxtConfig({
         '@fortawesome/fontawesome-svg-core/styles.css',
     ],
 
-    ui: {
-        theme: {
-            colors: ['picton-blue'],
-        }
-    },
-
     modules: [
         "@nuxt/ui",
-        'nuxt-security',
         '@nuxt/content',
-        '@nuxt/ui',
+        '@nuxt/image',
         'nuxt-gtag',
+        'nuxt-security',
     ],
+
+    image: {
+        cloudflare: {
+            baseURL: 'https://albawebstudio.com/'
+        }
+    },
 
     build: {
         transpile: [
@@ -40,6 +42,22 @@ export default defineNuxtConfig({
 
     gtag: {
         id: process.env.GAG_ID
+    },
+
+    nitro: {
+        preset: "cloudflare-pages",
+        cloudflare: {
+            deployConfig: true,
+            nodeCompat: true
+        },
+        esbuild: {
+            options: {
+                target: 'es2022'  // bump from es2019 to support BigInt
+            }
+        },
+        prerender: {
+            ignore: ['/__nuxt_content/**']
+        }
     },
 
     vite: {
@@ -53,7 +71,6 @@ export default defineNuxtConfig({
                 '@fortawesome/fontawesome-svg-core',
                 '@fortawesome/free-solid-svg-icons',
                 '@fortawesome/free-brands-svg-icons',
-                'vue-recaptcha-v3', // CJS
                 'date-fns'
             ]
         }
@@ -73,8 +90,6 @@ export default defineNuxtConfig({
                     "'wasm-unsafe-eval'",
                     "http://localhost:*",
                     "blob:",                             // <--- ADD THIS for Web Workers
-                    "https://www.google.com/recaptcha/",
-                    "https://www.gstatic.com/recaptcha/",
                     "https://www.googletagmanager.com/",
                     "https://static.cloudflareinsights.com"
                 ],
@@ -85,15 +100,8 @@ export default defineNuxtConfig({
                     "http://localhost:*",
                     "ws://localhost:*",
                     "https://static.cloudflareinsights.com/",
-                    "https://www.google.com/recaptcha/",
-                    "https://www.gstatic.com/recaptcha/",
                     "https://*.analytics.google.com",
                     "https://*.google-analytics.com"
-                ],
-                'frame-src': [
-                    "'self'",
-                    "https://www.google.com/recaptcha/",
-                    "https://recaptcha.google.com/recaptcha/"
                 ],
                 'base-uri': ["'self'"],
                 'object-src': ["'none'"]

@@ -1,5 +1,5 @@
-# Netlify
-.netlify
+# Cloudflare
+.wrangler
 
 # Nuxt dev/build outputs
 .output
@@ -22,6 +22,6 @@ logs
 .idea
 
 # Local env files
-.env
+.env.local
 .env.*
 !.env.example
