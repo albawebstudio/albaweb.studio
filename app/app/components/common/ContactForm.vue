@@ -4,7 +4,7 @@ interface Props {
   email: string;
   phone: string
   subject: string;
-  message: string;
+  messageBody: string;
 }
 
 const props = defineProps<Props>();
@@ -13,7 +13,7 @@ const emit = defineEmits<{
   (e: 'update:email', value: string): void
   (e: 'update:phone', value: string): void
   (e: 'update:subject', value: string): void
-  (e: 'update:message', value: string): void
+  (e: 'update:messageBody', value: string): void
   (e: 'submit'): void
 }>();
 
@@ -33,8 +33,8 @@ const updateSubject = (event: Event) => {
   emit('update:subject', (event.target as HTMLInputElement).value);
 };
 
-const updateMessage = (event: Event) => {
-  emit('update:message', (event.target as HTMLTextAreaElement).value);
+const updateMessageBody = (event: Event) => {
+  emit('update:messageBody', (event.target as HTMLTextAreaElement).value);
 };
 
 const submitForm = () => {
@@ -92,10 +92,11 @@ const submitForm = () => {
              required>
     </div>
     <div class="sm:col-span-2">
-      <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
-      <textarea :value="message"
-                @input="updateMessage"
-                id="message"
+      <label for="messageBody" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+      <textarea :value="messageBody"
+                @input="updateMessageBody"
+                id="messageBody"
+                name="messageBody"
                 rows="6"
                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                 placeholder="Leave a comment..."></textarea>
