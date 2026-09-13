@@ -25,7 +25,7 @@ export function usePortfolioData() {
             title: "New Leash Rescue",
             service: "Website",
             content: [
-                "New Leash Rescue is a Minnesota-based animal rescue focused on saving and rehoming dogs in need. They connect adoptable pets with loving families and promote responsible pet ownership through foster care and adoption."
+                "New Leash Rescue is a Minnesota-based animal rescue focused on saving and rehoming dogs and cats in need. They connect adoptable pets with loving families and promote responsible pet ownership through foster care and adoption."
             ],
             img: {
                 src: "/portfolio/newleashrescue.org.jpg",
