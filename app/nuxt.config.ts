@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
 
+    /** Content is loaded in the browser via Nuxt Content SQLite WASM, not SSR. */
+    ssr: false,
+
     devtools: {enabled: true},
 
     runtimeConfig: {
@@ -28,6 +31,17 @@ export default defineNuxtConfig({
         'nuxt-security',
     ],
 
+    content: {
+        /** Local SQLite at build time; deployed reads use browser WASM + static dumps. */
+        database: {
+            type: 'sqlite',
+            filename: '.data/content.sqlite',
+        },
+        experimental: {
+            nativeSqlite: true,
+        },
+    },
+
     image: {
         cloudflare: {
             baseURL: 'https://albawebstudio.com/'
@@ -48,7 +62,15 @@ export default defineNuxtConfig({
         preset: "cloudflare-pages",
         cloudflare: {
             deployConfig: true,
-            nodeCompat: true
+            nodeCompat: true,
+            pages: {
+                defaultRoutes: false,
+                routes: {
+                    version: 1,
+                    include: ['/api/send'],
+                    exclude: [],
+                },
+            },
         },
         esbuild: {
             options: {
@@ -56,8 +78,34 @@ export default defineNuxtConfig({
             }
         },
         prerender: {
-            ignore: ['/__nuxt_content/**']
-        }
+            crawlLinks: true,
+            routes: [
+                '/',
+                '/blog',
+                '/legal/privacy',
+                '/legal/terms',
+            ],
+        },
+    },
+
+    routeRules: {
+        '/api/**': { prerender: false },
+    },
+
+    hooks: {
+        'nitro:config'(nitroConfig) {
+            // Build-time SQLite only; production reads use WASM + static sql_dump.txt assets.
+            const contentDb = nitroConfig.runtimeConfig?.content?.database
+            if (contentDb?.type === 'd1') {
+                nitroConfig.runtimeConfig!.content!.database = {
+                    type: 'sqlite',
+                    filename: '.data/content.sqlite',
+                }
+            }
+            if (nitroConfig.cloudflare && 'd1_databases' in nitroConfig.cloudflare) {
+                delete nitroConfig.cloudflare.d1_databases
+            }
+        },
     },
 
     vite: {
