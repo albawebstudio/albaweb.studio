@@ -5,15 +5,7 @@ pages_build_output_dir = "dist"
 
 compatibility_flags = ["nodejs_compat","no_nodejs_compat_v2"]
 
-# Environment-specific variables
-[env.preview]
+[vars]
+RESEND_TEMPLATE_ID = "a1aa3c3f-2991-4dbb-b798-61e52dcf9714"
 GTAG_ID = "G-ELCD5FEVDR"
-
-[env.production]
-GTAG_ID = "G-ELCD5FEVDR"
-
-
-[[d1_databases]]
-binding = "DB"
-database_name = "albaws-content-db"
-database_id = "42eb39b2-fb1f-47e7-8195-9255adb5fdec"
+CONTACT_NAME="Alba Web Studio"

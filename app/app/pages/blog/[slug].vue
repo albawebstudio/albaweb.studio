@@ -25,7 +25,8 @@ const { data: article } = await useAsyncData<BlogArticle | null>(
         queryCollection('blog')
             .select('path', 'stem', 'title', 'description', 'meta', 'body')
             .where('stem', '=', `blog/${slug.value}`)
-            .first()
+            .first(),
+    { server: false },
 )
 
 if (!article.value) {

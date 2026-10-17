@@ -13,6 +13,7 @@ export default defineEventHandler(async (event) => {
     const response = await resend.emails.send({
         from: `${contactName} <${contactEmail}>`,
         to: [toEmail],
+        replyTo: body.email,
         subject: body.subject ?? 'New Contact Form Submission',
         template: {
             id: templateId,
@@ -23,6 +24,7 @@ export default defineEventHandler(async (event) => {
                 messageBody: body.messageBody,
                 subject: body.subject,
                 formType: body.formType,
+                currentYear: new Date().getFullYear(),
             },
         },
     });

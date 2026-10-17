@@ -19,10 +19,13 @@ type BlogPostListItem = {
 }
 
 const { blog } = useBlogData()
-const { data: blogs } = await useAsyncData<BlogPostListItem[]>('blog', () =>
-    queryCollection('blog')
-        .select('path', 'title', 'description', 'meta')
-        .all()
+const { data: blogs } = await useAsyncData<BlogPostListItem[]>(
+    'blog',
+    () =>
+        queryCollection('blog')
+            .select('path', 'title', 'description', 'meta')
+            .all(),
+    { server: false },
 )
 const pubDate = (dateStr?: string): string => {
   if (!dateStr) return '';

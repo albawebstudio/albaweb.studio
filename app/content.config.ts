@@ -10,5 +10,13 @@ export default defineContentConfig({
                 last_updated_at: z.string(),
             })
         }),
+        blog: defineCollection({
+            type: 'page',
+            source: 'blog/**/*.md',
+            schema: z.object({
+                last_updated_at: z.string().optional(),
+                backgroundImage: z.string().optional(),
+            }),
+        }),
     }
 })
